@@ -42,7 +42,7 @@ set :rbenv_ruby, '2.6.5'
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/xxx.pem']
+                  keys: ['~/.ssh/chatspace.pem']
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
