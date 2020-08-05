@@ -19,11 +19,11 @@
 * has_many :products, dependent:delete_all
 * has_one :address,dependent:delete
 
-## adressテーブル
+## addessテーブル
 
 |Column|Type|Options|
 |:-----|:--:|------:|
-|user_id|integer|null:false, foreign_key:true|
+|user_id|reference|null:false, foreign_key:true|
 |postal_code|string|null:false|
 |prefecture_id|string|null:false,foreign_key:true|
 |municipality|string|null:false|
