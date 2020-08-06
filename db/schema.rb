@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_06_091358) do
+ActiveRecord::Schema.define(version: 2020_08_06_102441) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "image", null: false
@@ -42,6 +48,12 @@ ActiveRecord::Schema.define(version: 2020_08_06_091358) do
     t.string "first_name_kana", null: false
     t.string "last_name_kana", null: false
     t.date "birthday", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "encryped_password", default: "", null: false
   end
 
   add_foreign_key "images", "products"
