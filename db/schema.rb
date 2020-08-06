@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_06_105339) do
+ActiveRecord::Schema.define(version: 2020_08_06_111153) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 2020_08_06_105339) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "encryped_password", default: "", null: false
   end
 
   add_foreign_key "addresses", "users"
