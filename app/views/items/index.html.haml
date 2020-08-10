@@ -1,5 +1,360 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
 
-- @parents.each do |parent|
-  =parent.name
+%body
+  %header
+    .headerInner
+      .mainHeader
+        %h1.appIcon
+          %a(href="#" style="user-select: auto;")
+            = image_tag 'logo.png', alt: 'ロゴ'
+        .searchBox
+          %form(action="#" method="get")
+            %input{:name => "utf8", :style => "user-select: auto;", :type => "hidden", :value => "✓"}/
+            %input#searchInput(type="text" class="input"  name="key" placeholder="キーワードから探す")/
+            %button(type="submit")
+              .searchIcon
+                = image_tag 'icon-search 1.png'
+
+        %ul.resultLists
+
+      
+      .nav
+        %ul.leftLists
+          %li.leftLists-item.leftLists-item-first
+            %a(href="#")カテゴリー
+            .tree.displayNone
+              %ul.categoryTree
+                %li.categoryTree__item
+                  %a#1(href="#")レディース
+                %li.categoryTree__item
+                  %a#2(href="#")メンズ
+                %li.categoryTree__item
+                  %a#3(href="#")ベビー・キッズ
+                %li.categoryTree__item
+                  %a#4(href="#")インテリア・住まい・小物
+                %li.categoryTree__item
+                  %a#5(href="#")本・音楽・ゲーム
+                %li.categoryTree__item
+                  %a#6(href="#")おもちゃ・ホビー・グッズ
+                %li.categoryTree__item
+                  %a#7(href="#")コスメ・香水・美容
+                %li.categoryTree__item
+                  %a#8(href="#")家電・スマホ・カメラ
+                %li.categoryTree__item
+                  %a#9(href="#")スポーツ・レジャー
+                %li.categoryTree__item
+                  %a#10(href="#")ハンドメイド
+                %li.categoryTree__item
+                  %a#11(href="#")チケット
+                %li.categoryTree__item
+                  %a#12(href="#")自動車・オートバイ
+                %li.categoryTree__item
+                  %a#13(href="#")その他
+          %li.leftLists-item
+            %a(href="#")ブランド
+            %ul.brandsPulldown.displayNone
+
+        %ul.rightLists
+          %li.rightLists-link.rightLists-link-login
+            %a(href="#")ログイン
+          %li.rightLists-link.rightLists-link-new
+            %a(href="#")新規会員登録
+  
+  
+  
+  
+  .mainVisual
+    .content
+      %h2.content__subtitle
+        人生を変えるフリマアプリ
+      %p.content__text
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br フリマアプリです
+      .content__btn
+        %a(href="#")
+        %a(href="#")
+    .picture
+
+
+  .topIntroduction
+    %h2.subtitle
+      選ばれる3つの理由
+      %after
+    %ul.lists
+      %li.list
+        .list__pict
+          %span.number 1
+          = image_tag "pict-reason-01.jpg"
+        %h3.list__text
+          %span 3分
+          ですぐに出品
+        %p.list__description スマホで入力するだけで簡単に出品できる！
+      
+      %li.list
+        .list__pict
+          %span 2
+          = image_tag "pict-reason-02.jpg"
+        %h3.list__text 
+          %span シンプル
+          で使いやすい
+        %p.list__description めんどくさい入力は必要なく、検索も購入もスムーズ！
+      
+      %li.list
+        .list__pict
+          %span 3
+          = image_tag "pict-reason-03.jpg"
+        %h3.list__text
+          手数料 
+          %span 業界最安
+        %p.list__description 
+          最大3%でお得に出品&amp;購入！
+  
+  
+  
+  
+  .topMiddleDl
+    .topMiddleDl__inner
+      %h2.subtitle 会員数日本一位
+      %p.text
+        FURIMAは、フリマアプリで最も人気。
+        %br 出品・購入回数も業界最多です！
+        %br ほしかったあの商品に出会えるかもしれません。
+      .btn
+        %a(href="#")
+        %a(href="#")
+  
+  
+  .topFeatures
+    %h2.head
+      特徴
+    .items
+      .item
+        .item__img
+          = image_tag "icon-01.png"
+        %h3.item__subtitle 簡単に売り買いできる
+        %p.item__detail スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .item
+        .item__img
+          = image_tag "icon-03.png" 
+        %h3.item__subtitle 売上金は即日振込みに対応
+        %p.item__detail 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      .item
+        .item__img
+          = image_tag "icon-04.png"
+        %h3.item__subtitle 様々な支払いに対応
+        %p.item__detail お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  
+
+  
+ 
+ 
+ 
+  .pickupSpace
+    %h2.head ピックアップカテゴリー
+    .productBox
+      .productHead
+        %a(href="#")
+          %h3 新規登録商品
+      .productLists
+        .productList
+          %a(href="#")
+            .productList--img
+              %img/
+            .productList--body
+              %h3.name 商品1
+              .details 
+                %ul
+                  %li 100円
+                  %li
+                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    1
+                %p (税込)
+        .productList
+          %a(href="#")
+            .productList--img
+              %img/
+            .productList--body
+              %h3.name 商品2
+              .details 
+                %ul
+                  %li 200円
+                  %li
+                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    2
+                %p (税込)
+        .productList
+          %a(href="#")
+            .productList--img
+              %img/
+            .productList--body
+              %h3.name 商品4
+              .details 
+                %ul
+                  %li 400円
+                  %li
+                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    3
+                %p (税込)
+        .productList
+          %a(href="#")
+            .productList--img
+              %img/
+            .productList--body
+              %h3.name 商品4
+              .details 
+                %ul
+                  %li 400円
+                  %li
+                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    4
+                %p (税込)
+        .productList
+          %a(href="#")
+            .productList--img
+              %img/
+            .productList--body
+              %h3.name商品5
+              .details 
+                %ul
+                  %li 500円
+                  %li
+                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    5
+                %p (税込)
+  
+  
+  
+  
+  
+  .pickupSpace.paddingButtom
+    %h2.head ピックアップブランド
+    .productBox
+      .productHead
+        %a(href="#")
+          %h3 アーカイバ
+      .productLists
+        .productList
+          %a(href="#")
+            .productList--img
+              %img/
+            .productList--body
+              %h3.name 商品１
+              .details 
+                %ul
+                  %li 100円
+                  %li
+                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    1
+                %p (税込)
+        .productList
+          %a(href="#")
+            .productList--img
+              %img/
+            .productList--body
+              %h3.name 商品2
+              .details 
+                %ul
+                  %li 200円
+                  %li
+                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    2
+                %p (税込)
+        .productList
+          %a(href="#")
+            .productList--img
+              %img/
+            .productList--body
+              %h3.name 商品3
+              .details 
+                %ul
+                  %li 300円
+                  %li
+                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    3
+                %p (税込)
+        .productList
+          %a(href="#")
+            .productList--img
+              %img/
+            .productList--body
+              %h3.name 商品4
+              .details 
+                %ul
+                  %li 400円
+                  %li
+                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    4
+                %p (税込)
+        .productList
+          %a(href="#")
+            .productList--img
+              %img/
+            .productList--body
+              %h3.name 商品5
+              .details 
+                %ul
+                  %li 500円
+                  %li
+                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    5
+                %p (税込)
+  
+  
+  
+  
+  .appBanner
+    .inner
+      %h2.inner__title　誰でもかんたん、人生を変えるフリマアプリ
+      %p.inner__text 今すぐ無料ダウンロード！
+      .inner__icon
+        %a(href="#")
+        %a(href="#")
+  
+  
+  
+  
+  %footer.footer
+    %ul.contents
+      %li.content
+        %h2.content__head このアプリについて
+        %ul
+          %li
+            %a(href="#") 会社概要（運営会社）
+          %li
+            %a(href="#") プライバシーポリシー
+          %li
+            %a(href="#") FURIMA利用規約
+          %li
+            %a(href="#") ポイントに関する特約
+      
+      %li.content
+        %h2.content__head このアプリを見る
+        %ul
+          %li
+            %a(href="#") カテゴリー一覧
+          %li
+            %a(href="#") ブランド一覧
+      
+      %li.content
+        %h2.content__head ヘルプ＆ガイド
+        %ul
+          %li
+            %a(href="#") FURIMAガイド
+          %li
+            %a(href="#") FURIMAロゴ利用ガイドライン
+          %li
+            %a(href="#") お知らせ
+    
+
+    .footer__logo
+      %a(href="#")
+        = image_tag 'logo-white.png'
+
+
+    %p ©️ FURIMA
+
+  
+  %a(href="#")
+    .purchaseBtn
+      %span.purchaseBtn__text{:style => "user-select: auto;"} 出品する
+      = image_tag 'icon_camera.png', class: 'purchaseBtn__icon'
+
