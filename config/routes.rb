@@ -12,5 +12,8 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
 
-  resources :products
+  resources :products 
+  get 'products/new/mid_category', to: 'products#mid_category'
+  get 'products/new/small_category', to: 'products#small_category'
+
 end
