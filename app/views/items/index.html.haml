@@ -143,32 +143,8 @@
         %h3.item__subtitle 様々な支払いに対応
         %p.item__detail お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   
-  
-  .pickupSpace
-    %h2.head ピックアップカテゴリー
-    .productBox
-      .productHead
-        %a(href="#")  
-          %h3 新規登録商品
-      .productLists
-        
-        .productList
-          - @products.each do |product|
-            %a(href="#")           
-              .productList--img
-              
-              .productList--body
-                %h3.name= product.name
-                .details 
-                  %ul
-                    %li= product.price
-                    %li
-                      %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
-                      1
-                  %p (税込)
 
-  -# - @product.images.each do |image|
-  -# = image.image
+  
  
  
  
@@ -182,7 +158,7 @@
         .productList
           %a(href="#")
             .productList--img
-              = image_tag "icon-01.png" 
+              %img/
             .productList--body
               %h3.name 商品1
               .details 
