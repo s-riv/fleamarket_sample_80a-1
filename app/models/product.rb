@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash        :prefecture
   #belongs_to :category
   #belongs_to :user
   has_many :images, dependent: :destroy
@@ -18,6 +20,7 @@ class Product < ApplicationRecord
     validates :send_price
     validates :ship_day
     validates :category_id
+    validates :prefecture_id
   end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_09_114020) do
+ActiveRecord::Schema.define(version: 2020_08_10_030756) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_114020) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status", null: false
     t.integer "condition", null: false
+    t.integer "prefecture_id", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
