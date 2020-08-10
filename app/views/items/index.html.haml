@@ -5,7 +5,7 @@
       .mainHeader
         %h1.appIcon
           %a(href="#" style="user-select: auto;")
-            = image_tag 'logo.png', alt: 'ロゴ'
+            = image_tag 'logo.png'
         .searchBox
           %form(action="#" method="get")
             %input{:name => "utf8", :style => "user-select: auto;", :type => "hidden", :value => "✓"}/
@@ -20,7 +20,9 @@
       .nav
         %ul.leftLists
           %li.leftLists-item.leftLists-item-first
-            %a(href="#")カテゴリー
+            %a(href="#")
+              = image_tag 'icon_category.png'
+              カテゴリー
             .tree.displayNone
               %ul.categoryTree
                 %li.categoryTree__item
@@ -50,7 +52,9 @@
                 %li.categoryTree__item
                   %a#13(href="#")その他
           %li.leftLists-item
-            %a(href="#")ブランド
+            %a(href="#")
+              = image_tag 'icon_brand.png'
+              ブランド
             %ul.brandsPulldown.displayNone
 
         %ul.rightLists
@@ -144,159 +148,56 @@
         %p.item__detail お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
   
 
-  
- 
- 
- 
+
   .pickupSpace
-    %h2.head ピックアップカテゴリー
-    .productBox
-      .productHead
-        %a(href="#")
-          %h3 新規登録商品
-      .productLists
-        .productList
-          %a(href="#")
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品1
-              .details 
-                %ul
-                  %li 100円
-                  %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
-                    1
-                %p (税込)
-        .productList
-          %a(href="#")
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品2
-              .details 
-                %ul
-                  %li 200円
-                  %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
-                    2
-                %p (税込)
-        .productList
-          %a(href="#")
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品4
-              .details 
-                %ul
-                  %li 400円
-                  %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
-                    3
-                %p (税込)
-        .productList
-          %a(href="#")
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品4
-              .details 
-                %ul
-                  %li 400円
-                  %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
-                    4
-                %p (税込)
-        .productList
-          %a(href="#")
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name商品5
-              .details 
-                %ul
-                  %li 500円
-                  %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
-                    5
-                %p (税込)
+    %h2.head 人気のカテゴリー
+    - @parents.each do |category|
+      .productBox
+        .productHead
+          %a(href="#")  
+            %h3= category.name
+        .productLists
+          - @products.each do |product|
+            .productList
+              %a(href="#")           
+                .productList--img
+                  = image_tag "icon-03.png"
+                .productList--body
+                  %h3.name= product.name
+                  .details 
+                    %ul
+                      %li= product.price
+                      %li
+                        %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                        1
+                    %p (税込)
+
   
   
   
   
   
   .pickupSpace.paddingButtom
-    %h2.head ピックアップブランド
+    %h2.head 人気のブランド
     .productBox
       .productHead
-        %a(href="#")
-          %h3 アーカイバ
+        %a(href="#")  
+          %h3 新規登録商品
       .productLists
-        .productList
-          %a(href="#")
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品１
-              .details 
-                %ul
-                  %li 100円
-                  %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
-                    1
-                %p (税込)
-        .productList
-          %a(href="#")
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品2
-              .details 
-                %ul
-                  %li 200円
-                  %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
-                    2
-                %p (税込)
-        .productList
-          %a(href="#")
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品3
-              .details 
-                %ul
-                  %li 300円
-                  %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
-                    3
-                %p (税込)
-        .productList
-          %a(href="#")
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品4
-              .details 
-                %ul
-                  %li 400円
-                  %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
-                    4
-                %p (税込)
-        .productList
-          %a(href="#")
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品5
-              .details 
-                %ul
-                  %li 500円
-                  %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
-                    5
-                %p (税込)
+        - @products.each do |product|
+          .productList
+            %a(href="#")           
+              .productList--img
+                = image_tag "icon-03.png"
+              .productList--body
+                %h3.name= product.name
+                .details 
+                  %ul
+                    %li= product.price
+                    %li
+                      %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                      1
+                  %p (税込)
   
   
   
