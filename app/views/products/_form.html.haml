@@ -95,6 +95,17 @@
             .new-listing__select-wrap
               = f.select :send_price, Product.send_prices_i18n.invert, {}, class: "select-default"
               .new-listing__no-product.no-product5
+          
+          .new-listing__tk-form-group
+            .new-listing__sell-upload-head
+              発送元の地域
+              .new-listing__form-require
+                必須
+            .new-listing__select-wrap
+              %i.icon-arrow-bottom
+                = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, prompt: "---")
+              .new-listing__no-product
+                選択してください
 
           .new-listing__tk-form-group
             .new-listing__sell-upload-head
@@ -104,6 +115,7 @@
             .new-listing__select-wrap
               = f.select :ship_day, Product.ship_days_i18n.invert, {}, class: "select"
               .new-listing__no-product.no-product7
+               
 
       .new-listing__settlement
         %p.tk-value
