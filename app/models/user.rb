@@ -3,8 +3,9 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :validatable
 
   has_one :address, dependent: :delete
+  has_one :card,    dependent: :delete
   has_many :products, dependent: :delete_all
-  has_many :contracts,dependent: :delete_all
+  has_many :contracts, dependent: :delete_all
 
   with_options presence: true do
     validates :nickname
