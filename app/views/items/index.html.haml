@@ -1,4 +1,3 @@
-
 %body
   %header
     .headerInner
@@ -13,10 +12,7 @@
             %button(type="submit")
               .searchIcon
                 = image_tag 'icon-search 1.png'
-
         %ul.resultLists
-
-      
       .nav
         %ul.leftLists
           %li.leftLists-item.leftLists-item-first
@@ -62,10 +58,6 @@
             %a(href="#")ログイン
           %li.rightLists-link.rightLists-link-new
             %a(href="#")新規会員登録
-  
-  
-  
-  
   .mainVisual
     .content
       %h2.content__subtitle
@@ -77,8 +69,6 @@
         %a(href="#")
         %a(href="#")
     .picture
-
-
   .topIntroduction
     %h2.subtitle
       選ばれる3つの理由
@@ -91,8 +81,7 @@
         %h3.list__text
           %span 3分
           ですぐに出品
-        %p.list__description スマホで入力するだけで簡単に出品できる！
-      
+        %p.list__description スマホで入力するだけで簡単に出品できる！     
       %li.list
         .list__pict
           %span 2
@@ -110,11 +99,7 @@
           手数料 
           %span 業界最安
         %p.list__description 
-          最大3%でお得に出品&amp;購入！
-  
-  
-  
-  
+          最大3%でお得に出品&amp;購入！  
   .topMiddleDl
     .topMiddleDl__inner
       %h2.subtitle 会員数日本一位
@@ -124,9 +109,7 @@
         %br ほしかったあの商品に出会えるかもしれません。
       .btn
         %a(href="#")
-        %a(href="#")
-  
-  
+        %a(href="#")  
   .topFeatures
     %h2.head
       特徴
@@ -146,37 +129,27 @@
           = image_tag "icon-04.png"
         %h3.item__subtitle 様々な支払いに対応
         %p.item__detail お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-  
-
-
   .pickupSpace
-    %h2.head 人気のカテゴリー
-    - @parents.each do |category|
-      .productBox
-        .productHead
-          %a(href="#")  
-            %h3= category.name
-        .productLists
-          - @products.each do |product|
-            .productList
-              %a(href="#")           
-                .productList--img
-                  = image_tag "icon-03.png"
-                .productList--body
-                  %h3.name= product.name
-                  .details 
-                    %ul
-                      %li= product.price
-                      %li
-                        %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
-                        1
-                    %p (税込)
-
-  
-  
-  
-  
-  
+    %h2.head 人気のカテゴリー    
+    .productBox
+      .productHead
+        %a(href="#")  
+          %h3 新規登録商品
+      .productLists
+        - @products.each do |product|
+          .productList
+            %a(href="#")           
+              .productList--img
+                %img{:src => "@product.images.image.url",:alt => "エラー"}
+              .productList--body
+                %h3.name= product.name
+                .details 
+                  %ul
+                    %li= product.price
+                    %li
+                      %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                      0
+                  %p (税込) 
   .pickupSpace.paddingButtom
     %h2.head 人気のブランド
     .productBox
@@ -188,7 +161,7 @@
           .productList
             %a(href="#")           
               .productList--img
-                = image_tag "icon-03.png"
+                %img{:src => "@product.images.image.url",:alt => "エラー"}
               .productList--body
                 %h3.name= product.name
                 .details 
@@ -196,23 +169,15 @@
                     %li= product.price
                     %li
                       %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
-                      1
-                  %p (税込)
-  
-  
-  
-  
+                      0
+                  %p (税込) 
   .appBanner
     .inner
       %h2.inner__title　誰でもかんたん、人生を変えるフリマアプリ
       %p.inner__text 今すぐ無料ダウンロード！
       .inner__icon
         %a(href="#")
-        %a(href="#")
-  
-  
-  
-  
+        %a(href="#") 
   %footer.footer
     %ul.contents
       %li.content
@@ -225,16 +190,14 @@
           %li
             %a(href="#") FURIMA利用規約
           %li
-            %a(href="#") ポイントに関する特約
-      
+            %a(href="#") ポイントに関する特約     
       %li.content
         %h2.content__head このアプリを見る
         %ul
           %li
             %a(href="#") カテゴリー一覧
           %li
-            %a(href="#") ブランド一覧
-      
+            %a(href="#") ブランド一覧     
       %li.content
         %h2.content__head ヘルプ＆ガイド
         %ul
@@ -244,16 +207,10 @@
             %a(href="#") FURIMAロゴ利用ガイドライン
           %li
             %a(href="#") お知らせ
-    
-
     .footer__logo
       %a(href="#")
         = image_tag 'logo-white.png'
-
-
-    %p ©️ FURIMA
-
-  
+    %p ©️ FURIMA  
   %a(href="#")
     .purchaseBtn
       %span.purchaseBtn__text{:style => "user-select: auto;"} 出品する
