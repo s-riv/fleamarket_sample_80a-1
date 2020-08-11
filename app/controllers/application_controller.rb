@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
+  before_action :set_ancestry
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
 
@@ -15,4 +17,12 @@ class ApplicationController < ActionController::Base
     Rails.env.production?
   end
 
+  def set_ancestry
+    @parent_categories = Category.where(ancestry: nil)
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday])
+  end
+  
 end
