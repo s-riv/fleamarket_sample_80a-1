@@ -1,0 +1,70 @@
+ul {
+  display: flex;
+}
+li {
+  display: inline-block;
+  margin: 8px 0 0;
+  font-size: 0;
+}
+.cards-number {
+  margin-top: 30px;
+}
+
+
+.cards-expire{
+  margin-top: 30px;
+  &__content{
+    display: flex;
+  }
+}
+
+.input-number{
+  padding: 10px 16px 8px 16px;
+  height: 30px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-top: 8px;
+  line-height: 1.5; 
+}
+
+.content{
+  background-color: white;
+  width: 700px;
+  margin: 0 auto;
+  &__title{
+    text-align: center;
+    padding: 32px;
+    font-size: 22px;
+    font-weight: bolder;
+  }
+  &__credit-card{
+    padding: 40px 40px 64px;
+    border-top: 1px solid #f5f5f5;
+    &__inner{
+      max-width: 343px;
+      margin: auto;
+      .content-bottom--add-btn{
+        margin-top: 32px;
+        background-color: #ea352d;
+        color: #fff;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.input-expire{
+  height: 40px;
+  margin: 5px;
+  width: 60px;
+}
+
+.form_require{
+  color: #fff;
+  background: red;
+  border-radius: 3px;
+}
