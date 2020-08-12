@@ -1,0 +1,46 @@
+.signup-main
+  .signup-main__contents
+    %h2.signup-main__head
+      住所登録
+    = form_with model: @address, local: true, class: "signup-main__form" do |f|
+      .signup-main__input
+        .signup-main__form-group
+          = f.label :postal_code,"郵便番号", class: "signup-main__label"
+          %span.signup-main__require
+            必須
+          %br
+          = f.text_field :postal_code, placeholder: "例) 123-4567", class: "signup-main__field"
+        .add_address_postal_code.add_all
+
+        .signup-main__form-group
+          = f.label :prefecture,"都道府県", class: "signup-main__label"
+          %span.signup-main__require
+            必須
+          %br
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "--"}, {class: "signup-main__prefecture"}
+        .add_address_prefecture_id.add_all
+
+        .signup-main__form-group
+          = f.label :municipality,"市区町村", class: "signup-main__label"
+          %span.signup-main__require
+            必須
+          %br
+          = f.text_field :municipality, placeholder: "例) 横浜市緑区", class: "signup-main__field"
+        .add_address_municipality.add_all
+
+        .signup-main__form-group
+          = f.label :block_number,"番地", class: "signup-main__label"
+          %span.signup-main__require
+            必須
+          %br
+          = f.text_field :block_number, placeholder: "例) 青山1-1-1", class: "signup-main__field"
+        .add_address_block_number.add_all
+
+        .signup-main__form-group
+          = f.label :apartment_name,"建物名", class: "signup-main__label"
+          %span.signup-main__any
+            任意
+          %br
+          = f.text_field :apartment_name, placeholder: "例) 柳ビル103", class: "signup-main__field"
+
+        = f.submit "登録", class: "signup-main__submit"
