@@ -138,7 +138,8 @@
           .productList
             = link_to "#", class: "sed" do           
               .productList--img
-                %img{:src => "@product.images.image.url",:alt => "エラー"}
+                - product.images.each do |image|
+                  = image_tag image.image.url, alt: "エラー"
               .productList--body
                 %h3.name= product.name
                 .details 
@@ -159,7 +160,8 @@
           .productList
             = link_to "#", class: "sed" do           
               .productList--img
-                %img{:src => "@product.images.image.url",:alt => "エラー"}
+                - product.images.each do |image|
+                  = image_tag image.image.url, alt: "エラー"
               .productList--body
                 %h3.name= product.name
                 .details 
