@@ -134,7 +134,7 @@
       .productLists
         - @products.each do |product|
           .productList
-            %a(href="#")           
+            = link_to "#" do           
               .productList--img
                 %img{:src => "@product.images.image.url",:alt => "エラー"}
               .productList--body
