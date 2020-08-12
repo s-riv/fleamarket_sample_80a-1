@@ -35,6 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 end
 
 protected
+  
   def address_params
     params.require(:address).permit(:postal_code, :prefecture_id, :municipality, :block_number, :apartment_name)  
   end 
