@@ -8,7 +8,7 @@
             = image_tag 'logo.png', alt: 'ロゴ'
         .searchBox
           %form(action="#" method="get")
-            %input{:name => "utf8", :style => "user-select: auto;", :type => "hidden", :value => "✓"}/
+            %input{name: :"utf8", style: :"user-select: auto;", type: :"hidden", value: :"✓"}/
             %input#searchInput(type="text" class="input"  name="key" placeholder="キーワードから探す")/
             %button(type="submit")
               .searchIcon
@@ -152,7 +152,7 @@
                 %ul
                   %li 100円
                   %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                     1
                 %p (税込)
         .productList
@@ -165,7 +165,7 @@
                 %ul
                   %li 200円
                   %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                     2
                 %p (税込)
         .productList
@@ -178,7 +178,7 @@
                 %ul
                   %li 400円
                   %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                     3
                 %p (税込)
         .productList
@@ -191,7 +191,7 @@
                 %ul
                   %li 400円
                   %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                     4
                 %p (税込)
         .productList
@@ -204,7 +204,7 @@
                 %ul
                   %li 500円
                   %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                     5
                 %p (税込)
   
@@ -225,7 +225,7 @@
                 %ul
                   %li 100円
                   %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                     1
                 %p (税込)
         .productList
@@ -238,7 +238,7 @@
                 %ul
                   %li 200円
                   %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                     2
                 %p (税込)
         .productList
@@ -251,7 +251,7 @@
                 %ul
                   %li 300円
                   %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                     3
                 %p (税込)
         .productList
@@ -264,7 +264,7 @@
                 %ul
                   %li 400円
                   %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                     4
                 %p (税込)
         .productList
@@ -277,7 +277,7 @@
                 %ul
                   %li 500円
                   %li
-                    %i.fa.fa-star.likeIcon{:style => "user-select: auto;"}
+                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                     5
                 %p (税込)
 
@@ -331,6 +331,6 @@
   
   = link_to new_product_path, class: "product" do
     .purchaseBtn
-      %span.purchaseBtn__text{:style => "user-select: auto;"} 出品する
+      %span.purchaseBtn__text{style: :"user-select: auto;"} 出品する
       = image_tag 'icon_camera.png', class: 'purchaseBtn__icon'
 
