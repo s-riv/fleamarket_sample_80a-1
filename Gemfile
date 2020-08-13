@@ -78,9 +78,5 @@ gem 'ancestry'
 gem 'rails-i18n'
 gem 'enum_help'
 gem 'active_hash'
-<<<<<<< Updated upstream
-gem 'rails-i18n'
 gem 'payjp'
-=======
-gem 'payjp'
->>>>>>> Stashed changes
+
