@@ -141,7 +141,7 @@
       .productLists
         - @products.each do |product|
           .productList
-            = link_to "#", class: "sed" do           
+            = link_to product_path(product.id), method: :get, class: "sed" do           
               .productList--img
                 - product.images.each do |image|
                   = image_tag image.image.url, alt: "エラー"
@@ -163,7 +163,7 @@
       .productLists
         - @products.each do |product|
           .productList
-            = link_to "#", class: "sed" do           
+            = link_to product_path(product.id), method: :get, class: "sed" do           
               .productList--img
                 - product.images.each do |image|
                   = image_tag image.image.url, alt: "エラー"
