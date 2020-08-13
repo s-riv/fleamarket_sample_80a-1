@@ -1,9 +1,6 @@
 class Product < ApplicationRecord
-<<<<<<< Updated upstream
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash        :prefecture
-=======
->>>>>>> Stashed changes
   belongs_to :category
   belongs_to :user
   has_many :images, dependent: :destroy
@@ -14,10 +11,6 @@ class Product < ApplicationRecord
   enum send_price:  { listing_person: 0, buyer_burden: 1 }
   enum ship_day:    { early_ship: 0, mid_ship: 1, late_ship: 2 }
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
   with_options presence: true do
     validates :name
     validates :description
