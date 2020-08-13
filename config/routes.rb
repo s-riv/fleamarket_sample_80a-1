@@ -14,8 +14,12 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
-  resources :products 
+  resources :cards, only: [:index, :new, :create, :destroy]
+  resources :products do
+    resources :contracts, only: [:new, :create]
+  end
   get 'products/new/mid_category', to: 'products#mid_category'
   get 'products/new/small_category', to: 'products#small_category'
 
+  
 end

@@ -51,7 +51,6 @@
           %li.leftLists-item
             = link_to "ブランド", '#'
             %ul.brandsPulldown.displayNone
-
         %ul.rightLists
           %li.rightLists-link.rightLists-link-login
             = link_to "ログイン", login_path
@@ -82,8 +81,7 @@
         %h3.list__text
           %span 3分
           ですぐに出品
-        %p.list__description スマホで入力するだけで簡単に出品できる！
-      
+        %p.list__description スマホで入力するだけで簡単に出品できる！     
       %li.list
         .list__pict
           %span 2
@@ -134,153 +132,50 @@
           = image_tag "icon-04.png", alt: '様々な支払いに対応'
         %h3.item__subtitle 様々な支払いに対応
         %p.item__detail お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
-  
   .pickupSpace
-    %h2.head ピックアップカテゴリー
+    %h2.head 人気のカテゴリー    
     .productBox
       .productHead
-        = link_to "#", class: "hed" do
+        = link_to "#", class: "hed" do 
           %h3 新規登録商品
       .productLists
-        .productList
-          = link_to "#", class: "sed" do
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品1
-              .details 
-                %ul
-                  %li 100円
-                  %li
-                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
-                    1
-                %p (税込)
-        .productList
-          = link_to "#", class: "sed" do
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品2
-              .details 
-                %ul
-                  %li 200円
-                  %li
-                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
-                    2
-                %p (税込)
-        .productList
-          = link_to "#", class: "sed" do
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品4
-              .details 
-                %ul
-                  %li 400円
-                  %li
-                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
-                    3
-                %p (税込)
-        .productList
-          = link_to "#", class: "sed" do
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品4
-              .details 
-                %ul
-                  %li 400円
-                  %li
-                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
-                    4
-                %p (税込)
-        .productList
-          = link_to "#", class: "sed" do
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name商品5
-              .details 
-                %ul
-                  %li 500円
-                  %li
-                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
-                    5
-                %p (税込)
-  
+        - @products.each do |product|
+          .productList
+            = link_to product_path(product.id), method: :get, class: "sed" do           
+              .productList--img
+                - product.images.each do |image|
+                  = image_tag image.image.url, alt: "エラー"
+              .productList--body
+                %h3.name= product.name
+                .details 
+                  %ul
+                    %li= product.price
+                    %li
+                      %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
+                      0
+                  %p (税込) 
   .pickupSpace.paddingButtom
-    %h2.head ピックアップブランド
+    %h2.head 人気のブランド
     .productBox
       .productHead
-        = link_to "#", class: "hed" do
-          %h3 アーカイバ
+        = link_to "#", class: "hed" do 
+          %h3 新規登録商品
       .productLists
-        .productList
-          = link_to "#", class: "sed" do
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品１
-              .details 
-                %ul
-                  %li 100円
-                  %li
-                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
-                    1
-                %p (税込)
-        .productList
-          = link_to "#", class: "sed" do
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品2
-              .details 
-                %ul
-                  %li 200円
-                  %li
-                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
-                    2
-                %p (税込)
-        .productList
-          = link_to "#", class: "sed" do
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品3
-              .details 
-                %ul
-                  %li 300円
-                  %li
-                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
-                    3
-                %p (税込)
-        .productList
-          = link_to "#", class: "sed" do
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品4
-              .details 
-                %ul
-                  %li 400円
-                  %li
-                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
-                    4
-                %p (税込)
-        .productList
-          = link_to "#", class: "sed" do
-            .productList--img
-              %img/
-            .productList--body
-              %h3.name 商品5
-              .details 
-                %ul
-                  %li 500円
-                  %li
-                    %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
-                    5
-                %p (税込)
-
+        - @products.each do |product|
+          .productList
+            = link_to product_path(product.id), method: :get, class: "sed" do           
+              .productList--img
+                - product.images.each do |image|
+                  = image_tag image.image.url, alt: "エラー"
+              .productList--body
+                %h3.name= product.name
+                .details 
+                  %ul
+                    %li= product.price
+                    %li
+                      %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
+                      0
+                  %p (税込) 
   .appBanner
     .inner
       %h2.inner__title　誰でもかんたん、人生を変えるフリマアプリ
@@ -288,7 +183,6 @@
       .inner__icon
         = link_to "App Store", '#'
         = link_to "Google", '#'
-  
   %footer.footer
     %ul.contents
       %li.content
@@ -301,16 +195,14 @@
           %li
             = link_to "FURIMA利用規約", '#'
           %li
-            = link_to "ポイントに関する特約", '#'
-      
+            = link_to "ポイントに関する特約", '#'   
       %li.content
         %h2.content__head このアプリを見る
         %ul
           %li
             = link_to "カテゴリー一覧", '#'
           %li
-            = link_to "ブランド一覧", '#'
-      
+            = link_to "ブランド一覧", '#' 
       %li.content
         %h2.content__head ヘルプ＆ガイド
         %ul
@@ -320,17 +212,11 @@
             = link_to "FURIMAロゴ利用ガイドライン", '#'
           %li
             = link_to "お知らせ", '#'
-    
     .footer__logo
       = link_to root_path, class: "hed" do
         = image_tag 'logo-white.png'
-
-
-    %p ©️ FURIMA
-
-  
+    %p ©️ FURIMA  
   = link_to new_product_path, class: "product" do
     .purchaseBtn
       %span.purchaseBtn__text{style: :"user-select: auto;"} 出品する
       = image_tag 'icon_camera.png', class: 'purchaseBtn__icon'
-

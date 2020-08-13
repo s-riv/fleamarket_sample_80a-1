@@ -75,4 +75,8 @@ gem 'fog-aws'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'ancestry'
+gem 'rails-i18n'
 gem 'enum_help'
+gem 'active_hash'
+gem 'payjp'
+
