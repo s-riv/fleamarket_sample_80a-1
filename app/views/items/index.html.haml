@@ -13,13 +13,13 @@
             %button(type="submit")
               .searchIcon
                 = image_tag 'icon-search 1.png', alt: 'サーチロゴ'
+
         %ul.resultLists
+
       .nav
         %ul.leftLists
           %li.leftLists-item.leftLists-item-first
-            = link_to "#" do
-              = image_tag 'icon_category.png'
-              カテゴリー
+            = link_to "カテゴリー", '#'
             .tree.displayNone
               %ul.categoryTree
                 %li.categoryTree__item
@@ -49,15 +49,14 @@
                 %li.categoryTree__item
                   = link_to "その他", '#'
           %li.leftLists-item
-            = link_to "#" do
-              = image_tag 'icon_brand.png'
-              ブランド
+            = link_to "ブランド", '#'
             %ul.brandsPulldown.displayNone
         %ul.rightLists
           %li.rightLists-link.rightLists-link-login
             = link_to "ログイン", login_path
           %li.rightLists-link.rightLists-link-new
             = link_to "新規会員登録", signup_path
+  
   .mainVisual
     .content
       %h2.content__subtitle
@@ -66,7 +65,10 @@
         FURIMAはだれでもかんたんに出品・購入できる
         %br フリマアプリです
       .content__btn
+        = link_to "App Store", '#'
+        = link_to "Google", '#'
     .picture
+
   .topIntroduction
     %h2.subtitle
       選ばれる3つの理由
@@ -97,7 +99,8 @@
           手数料 
           %span 業界最安
         %p.list__description 
-          最大3%でお得に出品&amp;購入！  
+          最大3%でお得に出品&amp;購入！
+
   .topMiddleDl
     .topMiddleDl__inner
       %h2.subtitle 会員数日本一位
@@ -108,6 +111,8 @@
       .btn
         = link_to "App Store", '#'
         = link_to "Google", '#'
+  
+  
   .topFeatures
     %h2.head
       特徴

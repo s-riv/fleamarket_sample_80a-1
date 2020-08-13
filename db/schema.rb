@@ -10,28 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_10_030756) do
+ActiveRecord::Schema.define(version: 2020_08_11_023343) do
 
-  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.integer "prefecture_id", null: false
     t.string "municipality", null: false
     t.string "apartment_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "block_number"
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "ancestry"
+    t.string "ancestry", limit: 191
     t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "contracts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_contracts_on_product_id"
+    t.index ["user_id"], name: "index_contracts_on_user_id"
+  end
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "image", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -39,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_08_10_030756) do
     t.index ["product_id"], name: "index_images_on_product_id"
   end
 
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
     t.integer "send_price", null: false
@@ -54,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_08_10_030756) do
     t.integer "prefecture_id", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "nickname", null: false
@@ -71,5 +89,7 @@ ActiveRecord::Schema.define(version: 2020_08_10_030756) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "contracts", "products"
+  add_foreign_key "contracts", "users"
   add_foreign_key "images", "products"
 end

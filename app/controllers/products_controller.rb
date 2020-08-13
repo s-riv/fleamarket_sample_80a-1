@@ -20,11 +20,9 @@ class ProductsController < ApplicationController
       render :new
     end
   end
+
   
   def edit
-  end
-
-  def update
   end
 
   def destroy
@@ -45,7 +43,7 @@ class ProductsController < ApplicationController
     params.require(:product)
       .permit(:name, :description, :price, :condition, :brand, :send_price,
               :ship_day, :category_id, :prefecture_id, images_attributes: [:image])
-      .merge(status: 0)
+      .merge(user_id: current_user.id, status: 0)
   end
 
 end
