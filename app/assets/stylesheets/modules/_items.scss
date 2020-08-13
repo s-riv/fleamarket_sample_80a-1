@@ -130,7 +130,14 @@ header{
             background-position: center right;
             background-repeat: no-repeat;
             background-size: 18px;
-            padding-right: 30px;
+            padding-right: 15px;
+            display: flex;
+            align-items: center;
+            img{
+              height: 14px;
+              width: 14px;
+              margin-right: 4px;
+            }
           }
           .displayNone{
             display: none;
@@ -402,13 +409,13 @@ header{
     }  
     .productLists{
       width: 780px;
-      margin: 26px auto;
+      margin: 20px auto 0px;
       display: flex;
       justify-content: space-around;
       .productList{
         width: 220px;
         display: inline-block;
-        float: left;
+        margin: 4px;
         .sed{
           background-color: #fff;
           display: inline-block;
