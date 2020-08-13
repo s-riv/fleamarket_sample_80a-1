@@ -1,0 +1,23 @@
+.contract-container
+  .contract-title
+    購入内容の確認
+  .contract-product
+    .contract-image
+      = image_tag @product.images[0].image.url
+    .contract-name
+      = @product.name
+  .contract-pay
+    .contract-method
+      %p 支払い金額
+    .contract-price
+      %p= "¥ #{@product.price}円"
+  .contract-way
+    .contract-way__name
+      %p 支払い方法
+    .contract-way__info
+      -if @card.present?
+        = link_to  "クレジットカード", cards_path(@card.id)
+      -else
+        = link_to "カード情報を登録してください", new_card_path
+  .contract-comfirm
+    = link_to "購入する", product_contracts_path(@product, @contract), method: "post", class: "btn"
