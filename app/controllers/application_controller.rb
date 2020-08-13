@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :set_ancestry
   protect_from_forgery with: :exception
 
-
+  
   private
 
   def basic_auth
