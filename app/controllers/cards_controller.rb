@@ -16,11 +16,7 @@ class CardsController < ApplicationController
 
   def create 
     if params['payjp-token'].blank?
-<<<<<<< Updated upstream
       redirect_to action: :new
-=======
-      redirect_to action: "new"
->>>>>>> Stashed changes
     else
       customer = Payjp::Customer.create(
         description: 'test', 
@@ -30,11 +26,7 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-<<<<<<< Updated upstream
         redirect_to action: :index
-=======
-        redirect_to root_path
->>>>>>> Stashed changes
       else
         redirect_to action: :new
       end
