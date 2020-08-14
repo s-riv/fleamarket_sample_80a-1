@@ -54,17 +54,17 @@
               = f.label :category_id, "カテゴリー" ,class: "new-listing__sell-up-load-head"
               %span.new-listing__form-require
                 必須
-              .sell__about__right__wrap-box.parent
-                %select#parent
-                  %option{value: 0} ---
-                  - @parent_categories.each do |parent|
-                    %option{value: "#{parent.id}"} #{parent.name}
-              .child
-                %select#child
-              .grand_child
-                = f.collection_select(:category_id, [], :id, :name, {prompt: "---"}, {id: "grand_child"})
-              .new-listing__no-product
-                選択してください
+            .sell__about__right__wrap-box.parent
+              %select#parent
+                %option{value: 0} ---
+                - @parent_categories.each do |parent|
+                  %option{value: "#{parent.id}"} #{parent.name}
+            .child
+              %select#child
+            .grand_child
+              = f.collection_select(:category_id, [], :id, :name, {prompt: "---"}, {id: "grand_child"})
+            .new-listing__no-product
+              選択してください
           .new-listing__tk-form-group
             .new-listing__sell-upload-head
               = f.label :ブランド
