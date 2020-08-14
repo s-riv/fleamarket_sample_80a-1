@@ -1,8 +1,8 @@
-.content
-  .content__title
+.paysystem
+  .paysystem__title
     %h1 クレジットカード情報入力
-  .content__credit-card
-    .content__credit-card__inner
+  .paysystem__credit-card
+    .paysystem__credit-card__inner
       = form_with url: cards_path, method: :post, html: { name: "inputForm" } do |f| 
         .cards-number
           = f.label :カード番号, class: 'label'
@@ -39,5 +39,5 @@
           = f.label :セキュリティコード, class: 'label'
           %span.form_require 必須
           = f.text_field :cvc, type: 'text', class: 'input-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4", id: "cvc"
-        .content-bottom#card_token
+        .paysystem-bottom#card_token
           = f.submit '登録する', class: 'content-bottom--add-btn', id: 'token_submit'

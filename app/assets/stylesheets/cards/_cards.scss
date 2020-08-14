@@ -1,11 +1,11 @@
-ul {
+ul.signup-card-list{
   display: flex;
-}
-li {
-  display: inline-block;
-  margin: 8px 0 0;
-  font-size: 0;
-}
+  li {
+    display: inline-block;
+    margin: 8px 0 0;
+    font-size: 0;
+    }
+  }
 .cards-number {
   margin-top: 30px;
 }
@@ -28,7 +28,7 @@ li {
   line-height: 1.5; 
 }
 
-.content{
+.paysytem{
   background-color: white;
   width: 700px;
   margin: 0 auto;
