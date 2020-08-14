@@ -41,3 +41,5 @@
           = f.text_field :cvc, type: 'text', class: 'input-number', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4", id: "cvc"
         .paysystem-bottom#card_token
           = f.submit '登録する', class: 'content-bottom--add-btn', id: 'token_submit'
+          
+= render 'items/exhibitionBotton'

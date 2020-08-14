@@ -1,0 +1,34 @@
+%footer.footer
+  %ul.contents
+    %li.content
+      %h2.content__head このアプリについて
+      %ul
+        %li
+          = link_to "会社概要（運営会社）", '#'
+        %li
+          = link_to "プライバシーポリシー", '#' 
+        %li
+          = link_to "FURIMA利用規約", '#'
+        %li
+          = link_to "ポイントに関する特約", '#'   
+    %li.content
+      %h2.content__head このアプリを見る
+      %ul
+        %li
+          = link_to "カテゴリー一覧", '#'
+        %li
+          = link_to "ブランド一覧", '#' 
+    %li.content
+      %h2.content__head ヘルプ＆ガイド
+      %ul
+        %li
+          = link_to "FURIMAガイド", '#'
+        %li
+          = link_to "FURIMAロゴ利用ガイドライン", '#'
+        %li
+          = link_to "お知らせ", '#'
+  .footer__logo
+    = link_to root_path, class: "hed" do
+      = image_tag 'logo-white.png'
+  %p ©️ FURIMA  
+
