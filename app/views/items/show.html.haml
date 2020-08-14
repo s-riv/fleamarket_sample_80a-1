@@ -1,58 +1,5 @@
 %body  
-  %header
-    .headerInner
-      .mainHeader
-        %h1.appIcon
-          = link_to root_path, class: "hed" do
-            = image_tag 'logo.png', alt: 'ロゴ'
-        .searchBox
-          %form(action="#" method="get")
-            %input{name: :"utf8", style: :"user-select: auto;", type: :"hidden", value: :"✓"}/
-            %input#searchInput(type="text" class="input"  name="key" placeholder="キーワードから探す")/
-            %button(type="submit")
-              .searchIcon
-                = image_tag 'icon-search 1.png', alt: 'サーチロゴ'
-        %ul.resultLists
-      .nav
-        %ul.leftLists
-          %li.leftLists-item.leftLists-item-first
-            = link_to "カテゴリー", '#'
-            .tree.displayNone
-              %ul.categoryTree
-                %li.categoryTree__item
-                  = link_to "レディース", '#'
-                %li.categoryTree__item
-                  = link_to "メンズ", '#'
-                %li.categoryTree__item
-                  = link_to "ベビー・キッズ", '#'
-                %li.categoryTree__item
-                  = link_to "インテリア・住まい・小物", '#'
-                %li.categoryTree__item
-                  = link_to "本・音楽・ゲーム", '#'
-                %li.categoryTree__item
-                  = link_to "おもちゃ・ホビー・グッズ", '#'
-                %li.categoryTree__item
-                  = link_to "コスメ・香水・美容", '#'
-                %li.categoryTree__item
-                  = link_to "家電・スマホ・カメラ", '#'
-                %li.categoryTree__item
-                  = link_to "スポーツ・レジャー", '#'
-                %li.categoryTree__item
-                  = link_to "ハンドメイド", '#'
-                %li.categoryTree__item
-                  = link_to "チケット", '#'
-                %li.categoryTree__item
-                  = link_to "自動車・オートバイ", '#'
-                %li.categoryTree__item
-                  = link_to "その他", '#'
-          %li.leftLists-item
-            = link_to "ブランド", '#'
-            %ul.brandsPulldown.displayNone
-        %ul.rightLists
-          %li.rightLists-link.rightLists-link-login
-            = link_to "ログイン", login_path
-          %li.rightLists-link.rightLists-link-new
-            = link_to "新規会員登録", signup_path
+  = render "header"
   .main
     .showMain
       .contentRight
@@ -146,46 +93,8 @@
                         %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                         ０
                     %p （税込）
-  .appBanner
-    .inner
-      %h2.inner__title　誰でもかんたん、人生を変えるフリマアプリ
-      %p.inner__text 今すぐ無料ダウンロード！
-      .inner__icon
-        = link_to "App Store", '#'
-        = link_to "Google", '#'
-  %footer.footer
-    %ul.contents
-      %li.content
-        %h2.content__head このアプリについて
-        %ul
-          %li
-            = link_to "会社概要（運営会社）", '#'
-          %li
-            = link_to "プライバシーポリシー", '#' 
-          %li
-            = link_to "FURIMA利用規約", '#'
-          %li
-            = link_to "ポイントに関する特約", '#'   
-      %li.content
-        %h2.content__head このアプリを見る
-        %ul
-          %li
-            = link_to "カテゴリー一覧", '#'
-          %li
-            = link_to "ブランド一覧", '#' 
-      %li.content
-        %h2.content__head ヘルプ＆ガイド
-        %ul
-          %li
-            = link_to "FURIMAガイド", '#'
-          %li
-            = link_to "FURIMAロゴ利用ガイドライン", '#'
-          %li
-            = link_to "お知らせ", '#'
-    .footer__logo
-      = link_to root_path, class: "hed" do
-        = image_tag 'logo-white.png'
-    %p ©️ FURIMA  
+  = render "appBanner"
+  = render "footer"
   = link_to new_product_path, class: "product" do
     .purchaseBtn
       %span.purchaseBtn__text{style: :"user-select: auto;"} 出品する
