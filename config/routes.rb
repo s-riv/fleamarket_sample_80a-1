@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'items#index'
+  get 'items/edit', :to => "items#edit"
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   
