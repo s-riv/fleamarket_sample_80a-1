@@ -40,7 +40,7 @@
     margin-top: 10px;
   }
   &__form-require{
-    background-color: red;
+    background-color: #3CCACE;
     color: white;
     margin: 0 0 0 8px;
     font-size: 12px;
@@ -58,7 +58,7 @@
     vertical-align: top;
   }
   &__form-require3{
-    background-color: red;
+    background-color: #3CCACE;
     color: white;
     margin: 0 0 0 8px;
     font-size: 12px;
@@ -183,7 +183,7 @@
   }
   &__no-image{
     margin-top: 16px;
-    color: red;
+    color: #3CCACE;
   }
   &__sell-content{
     padding: 40px;
@@ -240,10 +240,10 @@
   }
   &__no-product{
     margin-top: 16px;
-    color: red;
+    color: #3CCACE;
   }
   &__no-product2{
-    color: red;
+    color: #3CCACE;
     font-size: 14px;
     float: right;
   }
@@ -299,7 +299,8 @@
   }
   .doll-mark{
     margin-left: auto;
-    margin-top: 10px;
+    padding-right: 10px;
+    font-size: 30px;
   }
   &__enter-price{
     align-items: center;
@@ -360,7 +361,7 @@
     font-size: 17px;
     min-height: 48px;
     padding-top: 10px;
-    background-color: red;
+    background-color: #3CCACE;
     border-radius: 5px;
     color: #fff;
     margin-bottom: 15px;
@@ -399,7 +400,7 @@
 }
 
 .js-remove {
-  color: red;
+  color: #3CCACE;
 }
 
 .js-file {
