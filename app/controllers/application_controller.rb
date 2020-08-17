@@ -30,8 +30,4 @@ class ApplicationController < ActionController::Base
     Rails.env.production?
   end
 
-  def set_ancestry
-    @parent_categories = Category.where(ancestry: nil)
-  end
-
 end
