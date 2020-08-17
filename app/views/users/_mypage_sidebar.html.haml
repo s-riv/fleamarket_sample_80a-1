@@ -1,0 +1,26 @@
+.mypage_side
+  .mypage_side-nav
+    %ul.mypage_side-nav-list
+      %li.mypage_side-nav-list-item
+        = link_to "マイページ", user_path(current_user), class: "nav-link"
+      %li.mypage_side-nav-list-item
+        = link_to "出品する", new_product_path, class: "nav-link"
+      %li.mypage_side-nav-list-item
+        = link_to "出品中の商品", "#", class: "nav-link"
+      %li.mypage_side-nav-list-item
+        = link_to "売却済みの商品", "#", class: "nav-link"
+      %li.mypage_side-nav-list-item
+        = link_to "購入した商品", "", class: "nav-link"
+      %li.mypage_side-nav-list-item
+        = link_to "お届け先住所の変更", "",class: "nav-link"
+      %li.mypage_side-nav-list-item
+        = link_to "本人情報の変更", "", class: "nav-link"
+      - if current_user.card.present?
+        %li.mypage_side-nav-list-item
+          = link_to "クレジットカード情報", cards_path, class: "nav-link"
+      - else
+        %li.mypage_side-nav-list-item
+          = link_to "クレジットカード登録", new_card_path, class: "nav-link"
+      %li.mypage_side-nav-list-item
+        = link_to "ログアウト", logout_path, class: "nav-link"
+

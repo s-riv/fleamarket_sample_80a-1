@@ -1,84 +1,86 @@
-.paysystem {
-  margin: 70px;
-  position: relative;
-  width:500px;
-  margin-right: auto;
-  margin-left : auto;
-
-  &__title {
-    background: #3CCACE;
-    border-radius: 8px;
-    color: #fff;
-    text-align: center;
-    padding: 12px;
-    margin-bottom: 70px;
-    margin-right: auto;
-    margin-left : auto;
-    font-size: 24px;
-  }
-
-  &__credit-card {
-    &__inner {
-      .cards-number{
-        height: 110px;
-        background: #3CCACE;
-        border-radius: 8px;
-        color: #fff;
-        text-align: center;
-        padding: 12px;
-        margin-right: auto;
-        margin-left : auto;
-        .input-number{
-          border: 1px solid rgb(118, 118, 118);
-          height: 48px;
-          margin-top: 8px;
-        }
-      }
-      ul.signup-card-list {
-        li {
-          max-height: 20px;
-          max-width: 44px;
-          margin: 5px;
-        }
-      }
-      .cards-expire {
-        height: 110px;
-        width: 320px;
-        margin-top: 40px;
-        background: #3CCACE;
-        border-radius: 8px;
-        color: #fff;
-        text-align: center;
-        padding: 12px;
-        margin-right: auto;
-        margin-left : auto;
-        &__content {
-          justify-content: center;
-          &__wrap {
-          }
-          .input-expire {
-            height: 48px;
-            margin: 8px;
-            width: 110px;
-          }
-        }
-        .input-number {
-          height: 48px;
-          border: 1px solid rgb(118, 118, 118);
-        }
-      }
-      .paysystem-bottom{
-        margin-top: 70px;
-        text-align: center;
-        .content-bottom--add-btn{
-          height: 48px;
-          width: 100%;  
-          color: #fff;
-          background-color: #bb2a24;
-          border-radius: 8px;
-          border: 0px;
-        }
-      }
-    }
-  }
-}
+//カード情報のscss、編集の必要あり
+//.paysystem {
+//  margin: 70px;
+//  position: relative;
+//  width:500px;
+//  margin-right: auto;
+//  margin-left : auto;
+//
+//  &__title {
+//    background: #3CCACE;
+//    border-radius: 8px;
+//    color: #fff;
+//    text-align: center;
+//    padding: 12px;
+//    margin-bottom: 70px;
+//    margin-right: auto;
+//    margin-left : auto;
+//    font-size: 24px;
+//  }
+//
+//  &__credit-card {
+//    &__inner {
+//      .cards-number{
+//        height: 110px;
+//        background: #3CCACE;
+//        border-radius: 8px;
+//        color: #fff;
+//        text-align: center;
+//        padding: 12px;
+//        margin-right: auto;
+//        margin-left : auto;
+//        .input-number{
+//          border: 1px solid rgb(118, 118, 118);
+//          height: 48px;
+//          margin-top: 8px;
+//        }
+//      }
+//      ul.signup-card-list {
+//        li {
+//          max-height: 20px;
+//          max-width: 44px;
+//          margin: 5px;
+//        }
+//      }
+//      .cards-expire {
+//        height: 110px;
+//        width: 320px;
+//        margin-top: 40px;
+//        background: #3CCACE;
+//        border-radius: 8px;
+//        color: #fff;
+//        text-align: center;
+//        padding: 12px;
+//        margin-right: auto;
+//        margin-left : auto;
+//        &__content {
+//          justify-content: center;
+//          &__wrap {
+//          }
+//          .input-expire {
+//            height: 48px;
+//            margin: 8px;
+//            width: 110px;
+//          }
+//        }
+//        .input-number {
+//          height: 48px;
+//          border: 1px solid rgb(118, 118, 118);
+//        }
+//      }
+//      .paysystem-bottom{
+//        margin-top: 70px;
+//        text-align: center;
+//        .content-bottom--add-btn{
+//          height: 48px;
+//          width: 100%;  
+//          color: #fff;
+//          background-color: #bb2a24;
+//          border-radius: 8px;
+//          border: 0px;
+//        }
+//      }
+//    }
+//  }
+//}
+//

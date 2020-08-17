@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   } 
   
   devise_scope :user do
-    get "user/:id", :to => "users/registrations#detail"
     get "signup", :to => "users/registrations#new"
     get "login", :to => "users/sessions#new"
     get "logout", :to => "users/sessions#destroy"
@@ -14,7 +13,8 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
-  resources :cards, only: [:index, :new, :create, :destroy]
+  resources :users, only: :show
+  resources :cards, only: [:index, :new, :create, :destroy] 
   resources :products do
     resources :contracts, only: [:new, :create]
   end
