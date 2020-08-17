@@ -52,7 +52,7 @@
           %li.rightLists-link.rightLists-link-login
             = link_to "ログアウト", logout_path
           %li.rightLists-link.rightLists-link-new
-            = link_to "マイページ", "#"
+            = link_to "マイページ", user_path(current_user)
         -else
           %li.rightLists-link.rightLists-link-login
             = link_to "ログイン", login_path

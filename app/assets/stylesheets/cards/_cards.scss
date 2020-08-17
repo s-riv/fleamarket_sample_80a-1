@@ -1,13 +1,18 @@
-ul.signup-card-list{
+.signup-card-list{
   display: flex;
-  li {
+  .pay {
     display: inline-block;
     margin: 8px 0 0;
     font-size: 0;
-    }
   }
+
+}
 .cards-number {
-  margin-top: 30px;
+  margin-top: 10px;
+}
+.form_require{
+  background-color: #3CCACE;
+  color: white;
 }
 
 
@@ -28,15 +33,16 @@ ul.signup-card-list{
   line-height: 1.5; 
 }
 
-.paysytem{
+.paysystem{
   background-color: white;
+  margin: 50px auto;
+  border: 1px solid #3CCACE;
   width: 700px;
-  margin: 0 auto;
+  height: 800px;
   &__title{
     text-align: center;
-    padding: 32px;
+    padding: 10px;
     font-size: 22px;
-    font-weight: bolder;
   }
   &__credit-card{
     padding: 40px 40px 64px;
@@ -44,27 +50,24 @@ ul.signup-card-list{
     &__inner{
       max-width: 343px;
       margin: auto;
-      .content-bottom--add-btn{
-        margin-top: 32px;
-        background-color: #ea352d;
-        color: #fff;
-        width: 100%;
-        line-height: 48px;
-        font-size: 14px;
-        cursor: pointer;
-      }
+    }
+  }
+  &-bottom{
+    margin: 30px;
+    padding: 60px;
+    .add-bottom{
+      width: 200px;
+      height: 80px;
+      background-color: #3CCACE;
+      color: #f5f5f5;
+      border: 1px solid #ccc;
     }
   }
 }
+
 
 .input-expire{
   height: 40px;
   margin: 5px;
   width: 60px;
-}
-
-.form_require{
-  color: #fff;
-  background: red;
-  border-radius: 3px;
 }

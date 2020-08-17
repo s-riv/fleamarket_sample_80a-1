@@ -1,0 +1,100 @@
+.mypage-container{
+  display: flex;
+}
+.mypage-main {
+  width: 70vw;
+  height: 65vh;
+  margin-right: 100px;
+  background-color: rgb(245, 245, 245);
+  .mypage-user-icon {
+    height: 20%;
+    background-color: #c3f0f1;
+    margin-right: 20px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .user-icon-img{
+      height: 80px;
+      width: 80px;
+    }
+  h2 {
+    font-size: 20px;
+    color: rgb(90, 83, 83);
+  }
+  .mypage-exhibition_info {
+    height: 35%;
+    margin-right: 20px;
+    background-color: #fff;
+    .exhibition_message{
+      padding: 5px;;
+      font-size: 20px;
+      text-align: center;
+      color: rgb(90, 83, 83);
+      border-bottom: 1px solid  rgb(90, 83, 83);
+    }
+    .no_exhibition {
+      text-align: center;
+      color: red;
+      padding: 20px;
+    }
+    .exhibition_products{
+      display: flex;
+      &-eachbox {
+        width: 25%;
+        height: 180px;
+        &-image{
+          width: 180px;
+          height: 120px;
+          margin: 0 20px;
+          p{
+            text-align: center;
+          }
+        }
+      }     
+    }
+    .exhibition_link{
+      text-align: right;
+      padding-right: 20px;
+      padding-top: 80px;
+    }
+  }
+  .mypage-purchase_info {
+    height: 35%;
+    margin-right: 20px;
+    background-color: #fff;
+    .purchase_message{
+      padding: 5px;;
+      font-size: 20px;
+      text-align: center;
+      color: rgb(90, 83, 83);
+      border-bottom: 1px solid  rgb(90, 83, 83);
+    }
+    .no_purchase {
+      text-align: center;
+      color: red;
+      padding: 20px;
+    }
+    .purchase_products{
+      display: flex;
+      &-eachbox {
+        width: 25%;
+        height: 180px;
+        &-image{
+          width: 180px;
+          height: 120px;
+          margin: 0 20px;
+          p{
+            text-align: center;
+          }
+        }
+      }     
+    }
+    .purchase_link{
+      text-align: right;
+      padding-right: 20px;
+      padding-top: 80px;
+    }
+  }
+}
