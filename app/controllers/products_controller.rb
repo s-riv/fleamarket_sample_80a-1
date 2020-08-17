@@ -1,10 +1,12 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:edit, :update, :show]
+  before_action :return_to_top, except: [:index, :show]
+ 
 
   def index
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def new
@@ -15,7 +17,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if params[:product][:images_attributes] && @product.save
-      redirect_to root_path
+      redirect_to root_path, notice: "商品を出品しました"
     else
       @product.images.new
       render :new
@@ -25,6 +27,15 @@ class ProductsController < ApplicationController
   
   def edit
   end
+
+  def update
+    if params[:product][:images_attributes] && @product.update(edit_product_params)
+      redirect_to root_path, notice: "商品情報を編集しました"
+    else
+      render :edit
+    end
+  end
+
 
   def destroy
   end
@@ -46,5 +57,20 @@ class ProductsController < ApplicationController
               :ship_day, :category_id, :prefecture_id, images_attributes: [:image])
       .merge(user_id: current_user.id, status: 0)
   end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def edit_product_params
+    params.require(:product).permit(:name, :description, :price, :condition, :brand, :send_price, :ship_day, :category_id, :prefecture_id, images_attributes: [:image, :_destroy, :id])
+  end
+
+  def return_to_top
+    unless user_signed_in?
+      redirect_to root_path, alert: "ログインしてください"
+    end
+  end
+
 
 end
