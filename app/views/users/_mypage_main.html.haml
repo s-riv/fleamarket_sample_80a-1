@@ -1,0 +1,32 @@
+.mypage-main
+  %section.mypage-user-icon
+    %figure
+      = image_tag "member_photo_noimage_thumb.png", alt: "マイ画像", class: "user-icon-img"
+    %h2
+      = current_user.nickname
+  %section.mypage-exhibition_info
+    .exhibition_message
+      %h2  出品した商品
+    - if @exhibitions.count == 0
+      .no_exhibition
+        %p 出品した商品はありません
+    .exhibition_products
+      - @exhibitions.each do |exhibition|
+        .exhibition_products-eachbox-image
+          = link_to (image_tag "#{exhibition.images[0].image.url}"), product_path(exhibition.id)
+          %p= exhibition.name
+    .exhibition_link
+      = link_to "一覧表示", "#"
+  %section.mypage-purchase_info
+    .purchase_message
+      %h2  購入した商品
+    - if @contracts.count == 0
+      .no_purchase
+        %p 購入した商品はありません
+    .purchase_products
+      - @contracts.each do |contract|
+        .purchase_products-eachbox-image
+          = link_to (image_tag "#{contract.product.images[0].image.url}"), product_path(contract.product.id)
+          %p= contract.product.name
+    .purchase_link
+      = link_to "一覧表示", "#"
