@@ -6,9 +6,9 @@
       %li.mypage_side-nav-list-item
         = link_to "出品する", new_product_path, class: "nav-link"
       %li.mypage_side-nav-list-item
-        = link_to "出品中の商品", "#", class: "nav-link"
+        = link_to "出品中の商品", exhibition_user_path, class: "nav-link"
       %li.mypage_side-nav-list-item
-        = link_to "売却済みの商品", "#", class: "nav-link"
+        = link_to "売却済みの商品", bought_user_path, class: "nav-link"
       %li.mypage_side-nav-list-item
         = link_to "購入した商品", buy_user_path, class: "nav-link"
       %li.mypage_side-nav-list-item

@@ -1,29 +1,31 @@
-.purchase
-  .purchase__main
-    .purchase__main__title
-      購入した商品
-      -if @purchase_products.count == 0
-        %h2 購入した商品はありません
-      -else
-        - @purchase_products.each do |purchase|
-          .purchase__main__content
-            .purchase-image
-              = image_tag "#{purchase.product.images[0].image.url}",class:      'purchase-image__detail'
-            .purchase-info
-              .purchase-details
-                .purchase-details__item-name
-                  %span 商品名:
-                  = purchase.product.name
-              .purchase-price
-                .purchase__main__price
-                  %span 支払い金額：
-                  = "¥ #{purchase.product.price}円"
-              .purchase-time
-                .purchase__main__time
-                  %span 購入日：
-                  = l purchase.created_at, format: :short
-              .product-link
-                = link_to "商品詳細", product_path(purchase.product_id)
+.mypage-container
+  = render "mypage_sidebar"
+  .purchase
+    .purchase__main
+      .purchase__main__title
+        購入した商品
+        -if @purchase_products.count == 0
+          %h2 購入した商品はありません
+        -else
+          - @purchase_products.each do |purchase|
+            .purchase__main__content
+              .purchase-image
+                = image_tag "#{purchase.product.images[0].image.url}",class:      'purchase-image__detail'
+              .purchase-info
+                .purchase-details
+                  .purchase-details__item-name
+                    %span 商品名:
+                    = purchase.product.name
+                .purchase-price
+                  .purchase__main__price
+                    %span 支払い金額：
+                    = "¥ #{purchase.product.price}円"
+                .purchase-time
+                  .purchase__main__time
+                    %span 購入日：
+                    = l purchase.created_at, format: :short
+                .product-link
+                  = link_to "商品詳細", product_path(purchase.product_id)
 
 
 

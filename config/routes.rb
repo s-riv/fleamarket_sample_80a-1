@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :buy
+      get :exhibition
+      get :bought
     end
   end
   resources :cards, only: [:index, :new, :create, :destroy] 

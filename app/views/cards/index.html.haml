@@ -1,19 +1,23 @@
-.current__tilte
-  .paysystem__title__name
+.paysystem1
+  .paysystem1__content
     %h2 クレジットカード情報
-  .paysystem__title__credit-cards
+  .paysystem1__info
     - if @card.present?
-      .paysystem__title__credit-cards__list
-        = form_with url: card_path(@card.id), method: :delete, local: true, id: 'charge-form' do |f|
-          .paysystem__title--credit-cards__list--pay-num
-            = "**** **** **** " + @card_information.last4
-          .paysystem__title--credit-cards__list--pay-num
-            - exp_month = @card_information.exp_month.to_s
-            - exp_year = @card_information.exp_year.to_s.slice(2,3)
-            = exp_month + " / " + exp_year
+      = form_with url: card_path(@card.id), method: :delete, local: true, id: 'charge-form' do |f|
+        .paysystem1__card-info
+          .paysystem1__card-number
+            .paysystem1__card-number-info
+              %p カード番号：
+            .paysystem1__card-number-int
+              = "**** **** **** " + @card_information.last4
+          .paysystem1__card-age
+            .paysystem1__card-age-info
+              %p 有効期限（月／年）：
+            .paysystem1__card-age-int
+              - exp_month = @card_information.exp_month.to_s
+              - exp_year = @card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
           %input{type: "hidden", name: "card_id", value: ""}
-          = f.submit "削除する", {class: "content__title__credit-cards__list__remove"}
+        = f.submit "削除する", class: "remove-btn"
     -else
       %h5 カード情報がありません
-
-= render 'items/exhibitionBotton'

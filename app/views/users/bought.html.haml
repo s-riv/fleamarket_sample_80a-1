@@ -1,0 +1,28 @@
+.mypage-container
+  = render "mypage_sidebar"
+  .purchase
+    .purchase__main
+      .purchase__main__title
+        売却済の商品
+        -if @bought_products.count == 0
+          %h2 売却済の商品はありません
+        -else
+          - @bought_products.each do |bought|
+            .purchase__main__content
+              .purchase-image
+                = image_tag "#{bought.images[0].image.url}",class:        'purchase-image__detail'
+              .purchase-info
+                .purchase-details
+                  .purchase-details__item-name
+                    %span 商品名:
+                    = bought.name
+                .purchase-price
+                  .purchase__main__price
+                    %span お相手：
+                    = bought.contract.user.nickname
+                .purchase-time
+                  .purchase__main__time
+                    %span 売却日：
+                    = l bought.contract.created_at, format: :short
+                .product-link
+                  = link_to "商品詳細", product_path(bought)
