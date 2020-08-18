@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
-  resources :users, only: :show
+  resources :users, only: [:show, :edit, :update]
   resources :cards, only: [:index, :new, :create, :destroy] 
   resources :products do
     resources :contracts, only: [:new, :create]
