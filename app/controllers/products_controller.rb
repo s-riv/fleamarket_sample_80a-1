@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  
+
   def edit
   end
 
@@ -38,6 +38,9 @@ class ProductsController < ApplicationController
 
 
   def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to root_path, notice: "商品を削除しました"
   end
   
   def mid_category

@@ -32,13 +32,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
     redirect_to root_path
-end
+  end
+
+  def edit_address
+    @address = current_user.address
+  end
+
+  def update_address
+    @address = current_user.address
+    @address.update(address_params)
+    redirect_to user_path(current_user), notice: "住所情報を編集しました"
+  end
 
 protected
   
   def address_params
     params.require(:address).permit(:postal_code, :prefecture_id, :municipality, :block_number, :apartment_name)  
   end 
+
+
 
 
 end

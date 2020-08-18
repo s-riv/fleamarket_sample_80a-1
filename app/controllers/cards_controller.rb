@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   require_relative './../commonclass/payjp.rb'
-  before_action :set_card
+  before_action :set_card, only: [:index, :destroy]
 
   def index
     if @card.present?
@@ -26,9 +26,9 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: :index
+        redirect_to user_path(current_user), notice: "カード情報を登録しました"
       else
-        redirect_to action: :new
+        redirect_to action: :new, alert: "登録できませんでした"
       end
     end
   end
@@ -37,7 +37,7 @@ class CardsController < ApplicationController
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
     if @card.destroy
-      redirect_to action: :new, notice: "削除しました"
+      redirect_to user_path, notice: "カード情報を削除しました"
     else
       redirect_to action: :index, alert: "削除できませんでした"
     end

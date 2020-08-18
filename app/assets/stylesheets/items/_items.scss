@@ -2,10 +2,17 @@
   box-sizing: border-box;
 }
 
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+
+body{
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
   margin: 0;
   padding: 0;
 }
+
 
 element.style {
   user-select: auto;
@@ -499,6 +506,8 @@ header{
   color: #fff;
   background-color: #272727;
   text-align: center;
+  grid-row-start: 9;
+  grid-row-end: 10;
   .contents{
     max-width: 840px;
     margin: 0 auto;
@@ -563,3 +572,4 @@ header{
     }
   }
 }
+

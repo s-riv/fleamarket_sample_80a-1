@@ -1,0 +1,28 @@
+.mypage-container
+  = render "mypage_sidebar"
+  .purchase
+    .purchase__main
+      .purchase__main__title
+        出品中の商品
+        -if @exhibition_products.count == 0
+          %h2 出品中の商品はありません
+        -else
+          - @exhibition_products.each do |exhibition|
+            .purchase__main__content
+              .purchase-image
+                = image_tag "#{exhibition.images[0].image.url}",class:        'purchase-image__detail'
+              .purchase-info
+                .purchase-details
+                  .purchase-details__item-name
+                    %span 商品名:
+                    = exhibition.name
+                .purchase-price
+                  .purchase__main__price
+                    %span 値段：
+                    = "¥ #{exhibition.price}円"
+                .purchase-time
+                  .purchase__main__time
+                    %span 出品日：
+                    = l exhibition.created_at, format: :short
+                .product-link
+                  = link_to "商品詳細", product_path(exhibition)

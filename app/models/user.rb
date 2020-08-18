@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :validatable
+        :recoverable, :rememberable, :validatable
 
   has_one :address, dependent: :delete
   has_one :card,    dependent: :delete
@@ -25,4 +25,5 @@ class User < ApplicationRecord
       validates :last_name_kana
     end
   end
+
 end

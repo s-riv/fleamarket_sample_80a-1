@@ -11,9 +11,17 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
+    get "edit_address", to: 'users/registrations#edit_address'
+    post 'edit_address', to: "users/registrations#update_address"
   end
 
-  resources :users, only: :show
+  resources :users do
+    member do
+      get :buy
+      get :exhibition
+      get :bought
+    end
+  end
   resources :cards, only: [:index, :new, :create, :destroy] 
   resources :products do
     resources :contracts, only: [:new, :create]
