@@ -21,6 +21,14 @@ class UsersController < ApplicationController
     @purchase_products = current_user.contracts
   end
 
+  def exhibition
+    @exhibition_products = current_user.products.where(status: 0)
+  end
+
+  def bought
+    @bought_products = current_user.products.where(status: 1)
+  end
+
   private
 
   def user_params
