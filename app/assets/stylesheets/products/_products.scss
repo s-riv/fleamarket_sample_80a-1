@@ -73,90 +73,14 @@
   
   #image-box-1{
     flex-wrap: wrap;
+    #previews{
+      width: 200px;
+      height: 200px;
+      display: flex;
+    }
   }
 
-  .item-box{
-    display: block;
-    height: 100px;
-    background-color: #C0C0C0;
-    margin: 16px 0 0 0  ;
-    border: 2px dotted #888888;
-    word-wrap: break-all;
-    text-align: center;
-    font-size: 30px;
 
-  }
-  .item-num-0{
-    width: 620px;
-  }
-  .item-num-1{
-    width: 491px;
-  }
-  .item-num-2{
-    width: 363px;
-  }
-  .item-num-3{
-    width: 234px;
-  }
-  .item-num-4{
-    width: 106px;
-  }
-  //下段のfile_field
-  .item-num-5{
-    width: 100%;
-  }
-  .item-num-6{
-    width: 491px;
-  }
-  .item-num-7{
-    width: 363px;
-  }
-  .item-num-8{
-    width: 234px;
-  }
-  .item-num-9{
-    width: 106px;
-  }
-  .item-image{
-    margin-top: 16px;
-  }
-  .item-image__operetion--delete:hover{
-    cursor : pointer;
-  }
-  @mixin add_image_size {
-    height: 50px;
-    width: 100px;
-  }
-  .edit_img_0 {
-    @include add_image_size
-  }
-  .edit_img_1 {
-    @include add_image_size
-  }
-  .edit_img_2 {
-    @include add_image_size
-  }
-  .edit_img_3 {
-    @include add_image_size
-  }
-  .edit_img_4 {
-    @include add_image_size
-  }
-  .edit_img_5 {
-    @include add_image_size
-  }
-  .edit_img_6 {
-    @include add_image_size
-  }
-  .edit_img_7 {
-    @include add_image_size
-  }
-  .edit_img_8 {
-    @include add_image_size
-  }
-  .edit_img_9 {
-    @include add_image_size
-  }
   &__sell-upload-items-container{
     width: 100%;
     height: 100%;

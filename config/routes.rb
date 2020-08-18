@@ -15,7 +15,11 @@ Rails.application.routes.draw do
     post 'edit_address', to: "users/registrations#update_address"
   end
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users do
+    member do
+      get :buy
+    end
+  end
   resources :cards, only: [:index, :new, :create, :destroy] 
   resources :products do
     resources :contracts, only: [:new, :create]

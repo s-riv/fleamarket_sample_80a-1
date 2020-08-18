@@ -6,7 +6,7 @@
       = current_user.nickname
   %section.mypage-exhibition_info
     .exhibition_message
-      %h2  出品した商品
+      %h2  出品中の商品
     - if @exhibitions.count == 0
       .no_exhibition
         %p 出品した商品はありません
@@ -29,4 +29,4 @@
           = link_to (image_tag "#{contract.product.images[0].image.url}"), product_path(contract.product.id)
           %p= contract.product.name
     .purchase_link
-      = link_to "一覧表示", "#"
+      = link_to "一覧表示", buy_user_path
