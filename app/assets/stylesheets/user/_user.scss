@@ -1,5 +1,5 @@
 .add_all{
-  color: #ea352d;
+  color: #3CCACE;
 }
 .signup-main {
   height: 100%;
@@ -31,18 +31,18 @@
   &__form-group {
     margin-top: 32px;
     #error_explanation{
-      color: #ea352d;
+      color: #3CCACE;
       padding-bottom: 10px;
     }
   }
   .add-all{
-    color: #ea352d;
+    color: #3CCACE;
   }
   &__label {
     font-weight: 600;
   }
   &__require {
-    background: #ea352d;
+    background: #3CCACE;
     margin: 0 0 0 8px;
     border-radius: 2px;
     padding: 2px 4px;
@@ -84,8 +84,8 @@
   }
   &__submit {
     margin-top: 32px;
-    background: #ea352d;
-    border: 1px solid #ea352d;
+    background: #3CCACE;
+    border: 1px solid #3CCACE;
     color: white;
     width: 100%;
     line-height: 48px;
