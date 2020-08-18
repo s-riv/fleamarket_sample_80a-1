@@ -22,7 +22,7 @@
                 %span （税込）
                 %span 送料込
             .itemDetail
-              商品詳細　サンプル
+              商品詳細 サンプル
             .table
               %table
                 %tbody
@@ -56,14 +56,19 @@
                   %tr
                     %th 発送日の目安
                     %td 4-7日で発送
+              %ul
+                %li
+              - if user_signed_in? && current_user.id == @product.user_id
+                = link_to '削除', product_path, method: :delete, data: {confirm: "本当に削除しますか？"}
+
             .optionalArea
               %ul
                 %li.optionalBtn.likeBtn
                   %i.fa.fa-star
-                  お気に入り　０
+                  お気に入り ０
               %ul.optional
                 %li.optionalBtn
-                  = link_to　'#' do
+                  = link_to '#' do
                     %i.fa.fa-flag
                     不適切な商品の通報
           .commentBox
@@ -80,7 +85,7 @@
           = link_to 'このカテゴリーをもっと見る',"#",class:"link"
           .productLists
             .productList
-              = link_to product_path(product.id), method: :get, class: "link" do
+              = link_to product_path(@product), method: :get, class: "link" do
                 .productList__image
                   %img/
                 .productList__body
@@ -92,5 +97,3 @@
                         %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                         ０
                     %p （税込）
-  = render "appBanner"
-  = render "exhibitionBotton"
