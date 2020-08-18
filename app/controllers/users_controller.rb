@@ -17,6 +17,10 @@ class UsersController < ApplicationController
     redirect_to user_path(current_user.id), notice: "本人情報を更新しました"
   end
 
+  def buy
+    @purchase_products = current_user.contracts
+  end
+
   private
 
   def user_params
