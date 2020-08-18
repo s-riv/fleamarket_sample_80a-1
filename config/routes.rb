@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
+    get "edit_address", to: 'users/registrations#edit_address'
+    post 'edit_address', to: "users/registrations#update_address"
   end
 
   resources :users, only: [:show, :edit, :update]
