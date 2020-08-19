@@ -8,16 +8,14 @@
             .itemBox__body
               %ul
                 %li
-                  %img/
+                  - @image.each do |image|
+                    = image_tag image.image.url, alt: "エラー"
                   %ul
-                    %li
-                      %img/
-                    %li
-                      %img/
-                    %li
-                      %img/
+                    - @images.each do |image|
+                      %li
+                        = image_tag image.image.url, alt: "エラー"
             .itemBox__price
-              %span= @product.price
+              %span ¥#{@product.price}
               .itemBox__price-detail
                 %span （税込）
                 %span 送料込み
@@ -27,18 +25,18 @@
                 %tbody
                   %tr
                     %th 出品者
-                    %td ？？？
+                    %td= @user.nickname
                   %tr
                     %th カテゴリー
                     %td
-                      = link_to('ベビー・キッズ', "#")
-                      %br/
-                      = link_to('ベビー服(男女兼用) ~95cm', "#")
-                      %br/
-                      = link_to('アウター', "#")
+                      = link_to(@large.name, "#")
+                      %br
+                      = link_to(@midium.name, "#")
+                      %br
+                      = link_to(@small.name, "#")
                   %tr
                     %th ブランド
-                    %td
+                    %td= @product.brand
                   %tr
                     %th 商品のサイズ
                     %td
@@ -47,11 +45,10 @@
                     %td= @product.condition
                   %tr
                     %th 配送料の負担
-                    %td 送料込み（出品者負担）
-                      = link_to('東京都',"#")
+                    %td= @product.send_price
                   %tr
                     %th 発送元の地域
-                    %td 
+                    %td= @address.name
                   %tr
                     %th 発送日の目安
                     %td= @product.ship_day
@@ -59,7 +56,9 @@
                 %li
               - if user_signed_in? && current_user.id == @product.user_id
                 = link_to '削除', product_path, method: :delete, data: {confirm: "本当に削除しますか？"}
-
+                = link_to '編集', edit_product_path, method: :get
+              - else
+                = link_to '購入', new_product_contract_path(@product), method: :get
             .optionalArea
               %ul
                 %li.optionalBtn.likeBtn
@@ -70,18 +69,6 @@
                   = link_to '#' do
                     %i.fa.fa-flag
                     不適切な商品の通報
-          .commentBox
-            %ul.commentContents
-            = f.new_comment action: "#",method: :post
-              %input(type="hidden",value="✔︎")/
-              %textarea#comment_body(name="" cols="30" rows="10")
-              %p.noticeMsg
-                相手のことを考え丁寧なコメントを心がけましょう。
-                %br 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-              %br/
-              = button.commentBtn name, {} do
-                %i.fa.fa-comment
-                コメントする
         %ul.links
           %li
             = link_to "#", class: "link" do
@@ -92,18 +79,20 @@
               %i.fa.fa-angle-right
               次の商品
         .relatedItems
-          = link_to 'このカテゴリーをもっと見る',"#",class:"link"
+          = link_to 'もっと見る',"#",class:"link"
           .productLists
-            .productList
-              = link_to product_path(@product), method: :get, class: "link" do
-                .productList__image
-                  %img/
-                .productList__body
-                  %h3.name
-                  .details
-                    %ul
-                      %li 100円
-                      %li
-                        %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
-                        ０
-                    %p （税込）
+            - @products.each do |product|
+              .productList
+                = link_to product_path(product.id), method: :get, class: "sed" do           
+                  .productList--img
+                    - product.images.each do |image|
+                      = image_tag image.image.url, alt: "エラー"
+                  .productList--body
+                    %h3.name= product.name
+                    .details 
+                      %ul
+                        %li= product.price
+                        %li
+                          %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
+                          0
+                      %p (税込) 
