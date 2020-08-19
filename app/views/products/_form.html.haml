@@ -43,7 +43,7 @@
             %span.new-listing__form-require
               必須
           = f.text_area :description, class: "textarea-default", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-        .new-listing__no-product.no-product2
+        .new-listing__no-product.no-product1
 
       .new-listing__content-show
         %h3.show-sub-head
@@ -56,11 +56,11 @@
                 必須
             -if @product.persisted?
               .sell__about__right__wrap-box.parent
-                = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {prompt: "---", selected: @product.category.parent.parent_id}, {id: "parent"})
+                = f.collection_select(:category_id, Category.where(ancestry: nil), :id, :name, {prompt: "----", selected: @product.category.parent.parent_id}, {id: "parent"})
               .children
-                = f.collection_select(:category_id, @product.category.parent.parent.children, :id, :name, {prompt: "---", selected: @product.category.parent_id}, {id: "child"})
+                = f.collection_select(:category_id, @product.category.parent.parent.children, :id, :name, {prompt: "----", selected: @product.category.parent_id}, {id: "child"})
               .grand_children
-                = f.collection_select(:category_id, @product.category.parent.children, :id, :name, {prompt: "---", selected: @product.category.id}, {id: "grand_child"})
+                = f.collection_select(:category_id, @product.category.parent.children, :id, :name, {prompt: "----", selected: @product.category.id}, {id: "grand_child"})
             -else
               .sell__about__right__wrap-box.parent
                 %select#parent
@@ -70,8 +70,8 @@
               .child
                 %select#child
               .grand_child
-                = f.collection_select(:category_id, [], :id, :name, {prompt: "---"}, {id: "grand_child"})
-              .new-listing__no-product
+                = f.collection_select(:category_id, [], :id, :name, {prompt: "----"}, {id: "grand_child"})
+              .new-listing__no-product.no-product1
                 選択してください
           .new-listing__tk-form-group
             .new-listing__sell-upload-head
@@ -88,22 +88,22 @@
                 必須
             .new-listing__select-wrap
               %i.icon-arrow-bottom
-                = f.select :condition, Product.conditions_i18n.invert, {}, class: "select-default"
-              .new-listing__no-product.no-product4
-
+                = f.select :condition, Product.conditions_i18n.invert, {prompt: "----"}, class: "select-default2"
+              .new-listing__no-product.no-product2
+                選択してください
       .new-listing__content-show2
         %h3.show-sub-head
           配送について
         .new-listing__show-form-box
           .new-listing__tk-form-group
             .new-listing__sell-upload-head
-              = f.label :send_price,"配送料の負担"
+              = f.label :配送料の負担
               %apan.new-listing__form-require
                 必須
             .new-listing__select-wrap
-              = f.select :send_price, Product.send_prices_i18n.invert, {}, class: "select-default"
-              .new-listing__no-product.no-product5
-          
+              = f.select :send_price, Product.send_prices_i18n.invert, {prompt: "----"}, class: "select-default3"
+              .new-listing__no-product.no-product3
+                選択してください
           .new-listing__tk-form-group
             .new-listing__sell-upload-head
               発送元の地域
@@ -111,23 +111,20 @@
                 必須
             .new-listing__select-wrap
               %i.icon-arrow-bottom
-                = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, prompt: "---")
-              .new-listing__no-product
+                = f.collection_select :prefecture_id, Prefecture.all, :id,  :name, {prompt: "----"}, class: "select-default4"
+              .new-listing__no-product.no-product4
                 選択してください
-
           .new-listing__tk-form-group
             .new-listing__sell-upload-head
-              = f.label :ship_day,"発送までの日数"
+              = f.label :発送までの日数
               %span.new-listing__form-require
                 必須
             .new-listing__select-wrap
-              = f.select :ship_day, Product.ship_days_i18n.invert, {}, class: "select"
-              .new-listing__no-product.no-product7
-               
+              = f.select :ship_day, Product.ship_days_i18n.invert, {prompt: "----"}, class: "select-default5"
+              .new-listing__no-product.no-product5
+                選択してください
       .new-listing__settlement
-        %p.tk-value
-          価格（¥300~¥9,999,999)
-        .new-listing__tk-selling-price
+        .new-listing__tk-selling-prie
           .new-listing__input-price
             .new-listing__sell-upload-head2
               = f.label :price,"販売価格"
@@ -138,7 +135,7 @@
             .new-listing__enter-price
               .new-listing__enter-price2
                 = f.number_field :price, placeholder: "0", class: "tk-price"
-                .new-listing__no-product.no-product2
+                .new-listing__no-product.no-product6
         .new-listing__send-boxes
           .new-listing__send-box
             -if @product.persisted?
