@@ -309,7 +309,7 @@ header{
 }
 
 .topMiddleDl{
-  background-image: url(bg-topMiddleDl-pict.jpg);
+  background-image: image-url('bg-topMiddleDl-pict.jpg');
   background-position: bottom right;
   height: 400px;
   background-size: cover;
@@ -473,7 +473,7 @@ header{
 }
 
 .appBanner{
-  background-image: url(bg-appBanner-pict.jpg);
+  background-image: image-url('bg-appBanner-pict.jpg');
   padding: 100px 40px;
   position: relative;
   background-size: cover;
@@ -572,4 +572,3 @@ header{
     }
   }
 }
-
