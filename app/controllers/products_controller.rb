@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
     @small = @product.category
     @midium = @small.parent
     @large = @midium.parent
-    @image = @product.images.limit(1)
     @images = @product.images
     @products = Product.all.includes(:images).limit(5)
     @user = @product.user

@@ -84,14 +84,17 @@
         - @products.each do |product|
           .productList
             = link_to product_path(product.id), method: :get, class: "sed" do           
-              .productList--img
-                - product.images.each do |image|
-                  = image_tag image.image.url, alt: "エラー"
+              %figure.productList--img
+                = image_tag product.images.first.image.url, alt: "エラー",class: "productimage"
+                -if product.status == "sold"
+                  %figcaption
+                    .sold-out-tag
+                      %div SOLD
               .productList--body
                 %h3.name= product.name
                 .details 
                   %ul
-                    %li= product.price
+                    %li ¥#{product.price}
                     %li
                       %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                       0
@@ -106,14 +109,17 @@
         - @products.each do |product|
           .productList
             = link_to product_path(product.id), method: :get, class: "sed" do           
-              .productList--img
-                - product.images.each do |image|
-                  = image_tag image.image.url, alt: "エラー"
+              %figure.productList--img
+                = image_tag product.images.first.image.url, alt: "エラー",class: "productimage"
+                -if product.status == "sold"
+                  %figcaption
+                    .sold-out-tag
+                      %div SOLD
               .productList--body                
                 %h3.name= product.name
                 .details 
                   %ul
-                    %li= product.price
+                    %li ¥#{product.price}
                     %li
                       %i.fa.fa-star.likeIcon{style: :"user-select: auto;"}
                       0
