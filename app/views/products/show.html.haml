@@ -52,13 +52,7 @@
                   %tr
                     %th 発送日の目安
                     %td= @product.ship_day
-              %ul
-                %li
-              - if user_signed_in? && current_user.id == @product.user_id
-                = link_to '削除', product_path, method: :delete, data: {confirm: "本当に削除しますか？"}
-                = link_to '編集', edit_product_path, method: :get
-              - else
-                = link_to '購入', new_product_contract_path(@product), method: :get
+              
             .optionalArea
               %ul
                 %li.optionalBtn.likeBtn
