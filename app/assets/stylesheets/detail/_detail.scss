@@ -51,14 +51,14 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            span{
-              font-size: 46px;
-              font-weight: bold;
-              margin: 0 10px 0 0;
-            }
             .itemBox__price-detail{
               font-size: 16px;
             }
+          }
+          &__price>span{
+            font-size: 46px;
+            font-weight: bold;
+            margin: 0 10px 0 0;
           }
           .itemDetail{
             line-height: 1.5;
@@ -144,39 +144,26 @@
           position: relative;
         }
         .productLists{
+          width: 780px;
+          margin: 20px auto 0px;
+          display: flex;
+          justify-content: space-around;
           .productList{
-            margin: 0 0 10px;
-            float: left;
-            width: calc(100% / 3);
-            .link{
-              display: block;
-              margin: 24px 0 8px;
-              color: #3CCACE;
-              text-decoration: none;
-              font-weight: bold;
-              font-size: 22px;
-              position: relative;
-              &__image{
-                background-color: #fff;
+            width: 220px;
+            display: inline-block;
+            margin: 4px;
+            .sed{
+              background-color: #fff;
+              display: inline-block;
+              .productList--img{
                 width: 220px;
                 height: 150px;
                 position: relative;
                 overflow: hidden;
                 margin: 0;
                 z-index: auto;
-                img{
-                  position: absolute;
-                  top: 0;
-                  left: 0;
-                  right: 0;
-                  bottom: 0;
-                  width: 100%;
-                  z-index: auto;
-                  height: 150px;
-                  object-fit: cover;
-                }
               }
-              &__body{
+              .productList--body{
                 background-color: white;
                 color: #333;
                 padding: 16px;
@@ -192,6 +179,11 @@
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    li{
+                      .fa-star:before{
+                        content: "\f005";
+                      }
+                    }              
                   }
                   p{
                     font-size: 10px;
@@ -204,7 +196,6 @@
         }
       }
     }
-
   }
 }
 .showMain:after {
