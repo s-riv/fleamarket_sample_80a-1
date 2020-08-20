@@ -43,6 +43,16 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
+
+
+  def destroy
+    @product = Product.find(params[:id])
+    if @product.destroy
+      redirect_to root_path, notice: "商品を削除しました"
+    else
+      render :show
+    end
+  end
   
   def mid_category
     @mid_categories = Category.where(ancestry: params[:big_category_id])
