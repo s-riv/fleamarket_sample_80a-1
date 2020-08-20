@@ -47,8 +47,11 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to root_path, notice: "商品を削除しました"
+    if @product.destroy
+      redirect_to root_path, notice: "商品を削除しました"
+    else
+      render :show
+    end
   end
   
   def mid_category
