@@ -43,7 +43,7 @@ $(document).click(function(){
   
   $('.select-default2').on('change',function(){
     let condition = $(this).val();
-    if(condition == ""){
+    if(condition == ''){
       $('.select-default2').css('border-color','red')
       $('.no-product2').text('選択してください')
     }else{
@@ -176,7 +176,7 @@ $(document).click(function(){
     return html;
   }
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `<img data-index="${index}" src="${url}" width="200px" height="200px">`;
     return html;
   }
 
@@ -191,14 +191,18 @@ $(document).click(function(){
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
 
+    
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('image', blobUrl);
-    } else { 
-      $('#previews').append(buildImg(targetIndex, blobUrl));
-      $('#image-box-1').append(buildFileField(fileIndex[0]));
-      fileIndex.shift();
-      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-    }
+    } else{
+        $('#previews').append(buildImg(targetIndex, blobUrl));
+         $('#image-box-1').append(buildFileField(fileIndex[0]));
+         fileIndex.shift();
+         $(this).css('display', 'none')
+         if (  $('.js-file_group').length == 11){
+           $('.js-file_group:last').css('display', 'none');
+          }
+        }
   });
 
   $('#image-box-1').on('click', '.js-remove', function() {
@@ -206,7 +210,10 @@ $(document).click(function(){
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(this).parent().remove();
+    $('.js-file_group:last').css('display', 'block');
     $(`img[data-index="${targetIndex}"]`).remove();
     if ($('.js-file').length == 0) $('#image-box-1').append(buildFileField(fileIndex[0]));
+    if ($('.js-file').length <= 10){ }
   });
+
 });
