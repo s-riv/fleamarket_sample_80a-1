@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only:[:show, :destroy, :edit, :update, :purchase, :payment]
   
   def index
-    @products = Product.all.includes(:images).limit(5)
+    @products = Product.all.includes(:images).limit(5).order(id: :desc)
   end
 
 end

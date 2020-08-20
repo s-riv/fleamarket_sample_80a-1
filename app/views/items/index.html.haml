@@ -109,7 +109,7 @@
               .productList--img
                 - product.images.each do |image|
                   = image_tag image.image.url, alt: "エラー"
-              .productList--body
+              .productList--body                
                 %h3.name= product.name
                 .details 
                   %ul
