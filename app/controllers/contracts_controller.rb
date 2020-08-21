@@ -20,6 +20,9 @@ class ContractsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def set_product

@@ -1,0 +1,23 @@
+.contract
+  .contract__main
+    .contract__main__title
+      購入が完了しました
+    .contracct__main__item
+      .contract-image
+        = image_tag "#{@product.images[0].image.url}", size: '200×150', class: 'contract-image__detail'
+      .contract-details
+        .contract-details__item-name
+          %span 商品名:
+          = @product.name
+    .contract__main__price-table
+      .contract__main__price-table__left
+        購入金額
+      %p.contract__main__price-table__right
+        %span 
+          = "¥#{@product.price.to_s}"
+        %span
+          .tax 
+            (税込) 送料込み
+    .top-btn
+      .top-btn__submit
+        = link_to "トップページへ戻る", root_path, class: 'buy-content__user-info__submit__button'
