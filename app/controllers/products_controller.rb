@@ -11,9 +11,7 @@ class ProductsController < ApplicationController
     @midium = @small.parent
     @large = @midium.parent
     @images = @product.images
-    @products = Product.all.includes(:images).limit(5)
-    @user = @product.user
-    @address = @product.prefecture
+    @related_products = Product.order("RAND()").first(3)
   end
 
   def new

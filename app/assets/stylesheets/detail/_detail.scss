@@ -20,6 +20,7 @@
             ul{
               display: flex;
               position: relative;
+              width: 100%;
               li{
                 display: flex;
                 flex-direction: column;
@@ -204,12 +205,15 @@
               background-color: #fff;
               display: inline-block;
               .productList--img{
-                width: 220px;
-                height: 150px;
+                width: 200px;
+                height: 180px;
                 position: relative;
                 overflow: hidden;
                 margin: 0;
                 z-index: auto;
+                img{
+                  height: 100%;
+                }
               }
               .productList--body{
                 background-color: white;

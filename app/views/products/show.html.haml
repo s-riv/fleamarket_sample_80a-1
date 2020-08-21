@@ -28,7 +28,7 @@
                 %tbody
                   %tr
                     %th 出品者
-                    %td= @user.nickname
+                    %td= @product.user.nickname
                   %tr
                     %th カテゴリー
                     %td
@@ -51,7 +51,7 @@
                     %td= @product.send_price
                   %tr
                     %th 発送元の地域
-                    %td= @address.name
+                    %td= @product.prefecture.name
                   %tr
                     %th 発送日の目安
                     %td= @product.ship_day
@@ -86,12 +86,11 @@
         .relatedItems
           = link_to 'もっと見る',"#",class:"link"
           .productLists
-            - @products.each do |product|
+            - @related_products.each do |product|
               .productList
                 = link_to product_path(product.id), method: :get, class: "sed" do           
                   .productList--img
-                    - product.images.each do |image|
-                      = image_tag image.image.url, alt: "エラー"
+                    = image_tag product.images.first.image.url, alt: "エラー"
                   .productList--body
                     %h3.name= product.name
                     .details 
