@@ -10,7 +10,8 @@
           - @exhibition_products.each do |exhibition|
             .purchase__main__content
               .purchase-image
-                = image_tag "#{exhibition.images[0].image.url}",class:        'purchase-image__detail'
+                - exhibition.images.limit(1).each do |image|
+                  = image_tag image.image.url,class:'purchase-image__detail'
               .purchase-info
                 .purchase-details
                   .purchase-details__item-name

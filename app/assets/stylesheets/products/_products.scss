@@ -74,7 +74,7 @@
   #image-box-1{
     flex-wrap: wrap;
     #previews{
-      width: 200px;
+      width: 800px;
       height: 200px;
       display: flex;
     }
@@ -278,10 +278,30 @@
   display: none;
 }
 
-.js-remove {
+.product-group{
+  width: 150px;
+  height: 150px;
+  img{
+    height: 150px;
+    width: 150px;
+  }
+  .js-remove{
   color: #3CCACE;
+  }
 }
-
-.js-file {
-  display: flex;
+.hidden-destroy{
+  display: none;
+}
+.js-file_group{
+  display: none;
+  margin-top: 40px;
+  .js-file{
+    color: white;
+  }
+}
+.upload-product{
+  text-align: center;;
+  .upload-product-btn{
+    font-size: 60px;
+  }
 }
