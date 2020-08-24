@@ -176,67 +176,64 @@ $(document).click(function(){
   }
   const buildImg = (index, url)=> {
     const html = `<div data-index="${index}" class="product-group" >
-                    <img data-index="${index}" src="${url}" width="200px" height="200px">
+                    <img data-index="${index}" src="${url}" width="100px" height="100px">
                     <div class="js-remove">削除</div>
                   </div>`;
     return html;
   }
 
-  let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  let fileIndex = [1,2,3,4,5,6,7,8,9,10,];
   lastIndex = $('.js-file_group:last').data('index');
   fileIndex.splice(0, lastIndex);
 
-  $('.hidden-destroy').hide();
 
+  $('.hidden-destroy').hide();
   $('#image-box-1').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('image', blobUrl);
-    } else {
-        $('#previews').append(buildImg(targetIndex, blobUrl));
+    } else if($('.product-group').length <= 4) {
+        $('.previews_child1').append(buildImg(targetIndex, blobUrl));
          $('#image-box-1').append(buildFileField(fileIndex[0]));
          fileIndex.shift();
          fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-         $(this).css('display', 'none')
+         $(this).parent().css('display', 'none')
          $('.js-file_group:last').css('display', 'block')
-         if (  $('.js-file_group').length == 11){
-          $('.js-file_group:last').css('display', 'none');
          }
+      else if ($('.product-group').length >= 5){
+        $('.previews_child2').append(buildImg(targetIndex, blobUrl));
+         $('#image-box-1').append(buildFileField(fileIndex[0]));
+         fileIndex.shift();
+         fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+         $(this).parent().css('display', 'none')
+         $('.js-file_group:last').css('display', 'block')
         }
+        if (  $('.product-group').length == 10){
+          $('.js-file_group:last').css('display', 'none');
+          }
   });
   $('.product-group').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().children().data('index');
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-    if (hiddenCheck) hiddenCheck.prop('checked', true)
-    $(`.js-file_group[data-index="${targetIndex}"`).remove();
+    $(`.js-file_group[data-index="${targetIndex}"]`).remove();
     $(`.product-group[data-index="${targetIndex}"]`).remove();
-    if ($('.js-file_group').length == 10){
+    if (hiddenCheck) hiddenCheck.prop('checked', true)
+
+    if ($('.product-group').length == 9){
       $('.js-file_group:last').css('display', 'block')
     }
-    if ($('.js-file_group').length == 0){
-      $('#image-box-1').append(buildFileField(fileIndex[0]));
-      $('.js-file_group:last').css('display', 'block')
-      fileIndex.shift();
-      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-      $(this).remove();
+    if ($('.previews_child1').children('.product-group').length <= 4){
+        $('.previews_child2').children('.product-group:first').appendTo('.previews_child1');
     }
+
   });
 
   $('.upload-product-btn').on('click', function(){
-    if($('.product-group').length == 0){
-    $('.js-file_group:last').css('display', 'block')
-    $(this).remove();}
-    else{
-      $('#image-box-1').append(buildFileField(fileIndex[0]));
-      const input_number = $('.js-file_group').length + 1
-      $(`.js-file_group:last[data-index="${input_number}"]`).css('display', 'block')
-      fileIndex.shift();
-      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-      $(this).remove();
-    }
 
-  })
+      $('.js-file_group:last').css('display', 'block')
+      $(this).remove();
+    });
   
 });
