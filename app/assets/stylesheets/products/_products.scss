@@ -74,9 +74,19 @@
   #image-box-1{
     flex-wrap: wrap;
     #previews{
-      width: 800px;
-      height: 200px;
-      display: flex;
+      width: 600px;
+      height: 300px;
+      border: 1px solid #3CCACE;
+      .previews_child1{
+        width: 600px;
+        height: 150px;
+        display: flex;
+      }
+      .previews_child2{
+        width:  600px;
+        height: 150px;
+        display: flex;
+      }
     }
   }
 
@@ -279,11 +289,13 @@
 }
 
 .product-group{
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+  margin-top: 10px;
   img{
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
   }
   .js-remove{
   color: #3CCACE;
@@ -293,8 +305,8 @@
   display: none;
 }
 .js-file_group{
+  padding-top: 10px;
   display: none;
-  margin-top: 40px;
   .js-file{
     color: white;
   }
