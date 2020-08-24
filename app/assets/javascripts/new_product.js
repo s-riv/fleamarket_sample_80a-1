@@ -43,7 +43,7 @@ $(document).click(function(){
   
   $('.select-default2').on('change',function(){
     let condition = $(this).val();
-    if(condition == ""){
+    if(condition == ''){
       $('.select-default2').css('border-color','red')
       $('.no-product2').text('選択してください')
     }else{
@@ -170,13 +170,15 @@ $(document).click(function(){
     const html = `<div data-index="${num}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="product[images_attributes][${num}][image]"
-                    id="product_images_attributes_${num}_src"><br>
-                    <div class="js-remove">削除</div>
+                    id="product_images_attributes_${num}_src">
                   </div>`;
     return html;
   }
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `<div data-index="${index}" class="product-group" >
+                    <img data-index="${index}" src="${url}" width="200px" height="200px">
+                    <div class="js-remove">削除</div>
+                  </div>`;
     return html;
   }
 
@@ -190,23 +192,51 @@ $(document).click(function(){
     const targetIndex = $(this).parent().data('index');
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
-
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('image', blobUrl);
-    } else { 
-      $('#previews').append(buildImg(targetIndex, blobUrl));
+    } else {
+        $('#previews').append(buildImg(targetIndex, blobUrl));
+         $('#image-box-1').append(buildFileField(fileIndex[0]));
+         fileIndex.shift();
+         fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+         $(this).css('display', 'none')
+         $('.js-file_group:last').css('display', 'block')
+         if (  $('.js-file_group').length == 11){
+          $('.js-file_group:last').css('display', 'none');
+         }
+        }
+  });
+  $('.product-group').on('click', '.js-remove', function() {
+    const targetIndex = $(this).parent().children().data('index');
+    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    if (hiddenCheck) hiddenCheck.prop('checked', true)
+    $(`.js-file_group[data-index="${targetIndex}"`).remove();
+    $(`.product-group[data-index="${targetIndex}"]`).remove();
+    if ($('.js-file_group').length == 10){
+      $('.js-file_group:last').css('display', 'block')
+    }
+    if ($('.js-file_group').length == 0){
       $('#image-box-1').append(buildFileField(fileIndex[0]));
+      $('.js-file_group:last').css('display', 'block')
       fileIndex.shift();
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+      $(this).remove();
     }
   });
 
-  $('#image-box-1').on('click', '.js-remove', function() {
-    const targetIndex = $(this).parent().data('index');
-    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-    if (hiddenCheck) hiddenCheck.prop('checked', true);
-    $(this).parent().remove();
-    $(`img[data-index="${targetIndex}"]`).remove();
-    if ($('.js-file').length == 0) $('#image-box-1').append(buildFileField(fileIndex[0]));
-  });
+  $('.upload-product-btn').on('click', function(){
+    if($('.product-group').length == 0){
+    $('.js-file_group:last').css('display', 'block')
+    $(this).remove();}
+    else{
+      $('#image-box-1').append(buildFileField(fileIndex[0]));
+      const input_number = $('.js-file_group').length + 1
+      $(`.js-file_group:last[data-index="${input_number}"]`).css('display', 'block')
+      fileIndex.shift();
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
+      $(this).remove();
+    }
+
+  })
+  
 });

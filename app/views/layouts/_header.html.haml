@@ -7,7 +7,7 @@
       .searchBox
         %form(action="#" method="get")
           %input{name: :"utf8", style: :"user-select: auto;", type: :"hidden", value: :"✓"}/
-          %input#searchInput(type="text" class="input"  name="key" placeholder="キーワードか探す")/
+          %input#searchInput(type="text" class="input"  name="key" placeholder="キーワードから探す")/
           %button(type="submit")
             .searchIcon
               = image_tag 'icon-search 1.png', alt: 'サーチロゴ'
@@ -15,7 +15,9 @@
     .nav
       %ul.leftLists
         %li.leftLists-item.leftLists-item-first
-          = link_to "カテゴリー", '#'
+          = link_to '#' do
+            = image_tag 'icon_category.png',alt: 'エラー'
+            %p カテゴリー
           .tree.displayNone
             %ul.categoryTree
               %li.categoryTree__item
@@ -45,7 +47,9 @@
               %li.categoryTree__item
                 = link_to "その他", '#'
         %li.leftLists-item
-          = link_to "ブランド", '#'
+          = link_to '#' do
+            = image_tag 'icon_brand.png', alt: 'エラー'
+            %p ブランド
           %ul.brandsPulldown.displayNone
       %ul.rightLists
         -if user_signed_in?

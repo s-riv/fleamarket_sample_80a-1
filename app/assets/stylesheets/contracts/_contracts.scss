@@ -76,6 +76,7 @@ $main-blue: #3CCACE;
         font-size: 25px;
         font-weight: bold;
         color: $font_title;
+        margin-right: 10px;
       }
     }
     &__user-info {
@@ -112,4 +113,24 @@ $main-blue: #3CCACE;
       }
     }
   }  
+}
+.top-btn {
+  display: flex;
+  justify-content: center;
+  &__submit {
+    font-weight: bold;
+    text-align: center;
+    line-height: 48px;
+    background: #3CCACE;
+    border: 1px solid #3CCACE;
+    width: 200px;
+    font-size: 18px;
+    border-radius: 100px;
+    margin-top: 30px;
+    cursor: pointer;
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+  }
 }

@@ -10,11 +10,8 @@ class ProductsController < ApplicationController
     @small = @product.category
     @midium = @small.parent
     @large = @midium.parent
-    @image = @product.images.limit(1)
     @images = @product.images
-    @products = Product.all.includes(:images).limit(5)
-    @user = @product.user
-    @address = @product.prefecture
+    @related_products = Product.order("RAND()").first(3)
   end
 
   def new
@@ -47,8 +44,11 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to root_path, notice: "商品を削除しました"
+    if @product.destroy
+      redirect_to root_path, notice: "商品を削除しました"
+    else
+      render :show
+    end
   end
   
   def mid_category

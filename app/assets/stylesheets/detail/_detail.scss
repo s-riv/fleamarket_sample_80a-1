@@ -20,6 +20,7 @@
             ul{
               display: flex;
               position: relative;
+              width: 100%;
               li{
                 display: flex;
                 flex-direction: column;
@@ -28,7 +29,40 @@
                 margin: 0 auto;
                 img{
                   object-fit: cover;
-                  height: 346px;
+                  height: 360px;
+                }
+                figcaption{
+                  height: 20px;
+                  .sold-out-tag{
+                    height: 20px;
+                    > div{
+                      top: 35px;
+                      font-size: 45px;
+                      position: absolute;
+                      left: 0;
+                      z-index: 2;
+                      color: #fff;
+                      -webkit-transform: rotate(-45deg);
+                      transform: rotate(-45deg);
+                      letter-spacing: 2px;
+                      font-weight: 600;
+                    }
+                  } 
+                  .sold-out-tag:after{
+                    border-width: 200px 200px 0 0;
+                    border-color: #ea352d transparent;
+                  } 
+                  .sold-out-tag:after{
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                  }                 
                 }
                 ul{
                   display: flex;
@@ -91,6 +125,21 @@
                   color: #3CCACE;
                 }
               }
+            }
+            p{
+              font-size: 30px;
+              color: #ffffff;
+              text-align: center;
+              background-color: gray;
+              margin-top: 10px;
+            };
+            .buyer-btn{
+              display: block;
+              text-align: center;
+              font-size: 30px;
+              background-color:red;
+              color: white;
+              margin-top: 10px;              
             }
           }
           .optionalArea{
@@ -156,12 +205,15 @@
               background-color: #fff;
               display: inline-block;
               .productList--img{
-                width: 220px;
-                height: 150px;
+                width: 200px;
+                height: 180px;
                 position: relative;
                 overflow: hidden;
                 margin: 0;
                 z-index: auto;
+                img{
+                  height: 100%;
+                }
               }
               .productList--body{
                 background-color: white;
@@ -235,7 +287,7 @@ tr {
   border-color: inherit;
 }
 .appBanner{
-  background-image: url(bg-appBanner-pict.jpg);
+  background-image: image-url('bg-appBanner-pict.jpg');
   padding: 100px 40px;
   position: relative;
   background-size: cover;

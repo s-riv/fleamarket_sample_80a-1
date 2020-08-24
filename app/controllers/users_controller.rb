@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
   def exhibition
     @exhibition_products = current_user.products.where(status: 0)
+
   end
 
   def bought
