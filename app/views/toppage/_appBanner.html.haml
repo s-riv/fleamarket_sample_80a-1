@@ -3,5 +3,7 @@
     %h2.inner__title　誰でもかんたん、人生を変えるフリマアプリ
     %p.inner__text 今すぐ無料ダウンロード！
     .inner__icon
-      = link_to "App Store", '#'
-      = link_to "Google", '#'
+      .inner__icon--app
+        = link_to image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", alt: 'appstore'
+      .inner__icon--google
+        = link_to image_tag "google-play-badge.png", alt: 'googleplay'

@@ -8,8 +8,10 @@
         FURIMAはだれでもかんたんに出品・購入できる
         %br フリマアプリです
       .content__btn
-        = link_to image_tag('Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg'),"/"
-        = link_to image_tag('google-play-badge.png'),"/"
+        .content__btn--app
+          = link_to image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", alt: 'appstore'
+        .content__btn--google
+          = link_to image_tag "google-play-badge.png", alt: 'googleplay'
     .picture
 
   .topIntroduction
@@ -52,9 +54,10 @@
         %br 出品・購入回数も業界最多です！
         %br ほしかったあの商品に出会えるかもしれません。
       .btn
-        = link_to "App Store", '#'
-        = link_to "Google", '#'
-  
+        .btn__app
+          = link_to image_tag "Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg", alt: 'appstore'
+        .btn__google
+          = link_to image_tag "google-play-badge.png", alt: 'googleplay'
   
   .topFeatures
     %h2.head
