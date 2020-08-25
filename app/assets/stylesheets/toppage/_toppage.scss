@@ -225,6 +225,16 @@ header{
     &__btn{
       display: flex;
       margin: 24px 0 0 0;
+      &--app{
+        width: 170px;
+        position: relative;
+        top: 14px;
+      }
+      &--google{
+        width: 220px;
+        left: 150px;
+
+      }
     }
   }
   .picture{
@@ -334,6 +344,17 @@ header{
     }
     .btn{
       display: flex;
+      &__app{
+        width: 150px;
+        height: 50px;
+        position: relative;
+        top: 14px;
+      }
+      &__google{
+        width: 200px;
+        left: 150px;
+
+      }
     }
   }
 }
@@ -539,6 +560,16 @@ header{
       display: flex;
       justify-content: center;
       margin: 20px auto 0;
+      &--app{
+        width: 150px;
+        position: relative;
+        top: 14px;
+      }
+      &--google{
+        width: 200px;
+        left: 150px;
+
+      }
 
     }
   }
@@ -612,6 +643,7 @@ header{
     }
     &__icon{
       width: 60%;
+
     }
   }
 }
