@@ -1,5 +1,38 @@
 # README
 
+## アプリケーション概要
+* フリーマーケット用のWebアプリです。５人のチームでアジャイル開発を行いました。
+
+## 機能一覧
+- ユーザー登録、ログイン機能（ウィザード形式）
+- 商品出品機能
+- 商品購入機能
+- クレジットカード登録機能（PayJp）
+
+## 使用技術
+### ■ 言語
+#### バックエンド
+* Ruby 2.6.5
+
+#### フロントエンド
+* jquery-rails 4.4.0
+
+## ■ フレームワーク
+* Ruby on Rails 6.0.3.2
+
+## ■ データベース
+* MySQL 5.6.47
+
+## ■ インフラ
+* AWS EC2
+* AWS S3
+
+### デプロイ
+* Capistranoによる自動デプロイ
+
+### ER図
+<img width="200" alt="ER図" src="Fleamrket_sample_80a.jpg">
+
 ## DB設計
 ### usersテーブル
 
@@ -52,7 +85,7 @@
 |description|text|null:false|
 |condition|integer|null:false|
 |brand|string||
-|status|int|null:false|
+|status|integer|null:false|
 |ship_day|string|null:false|
 |category_id|integer|null:false|
 
@@ -84,7 +117,7 @@
 |Column|Type|Options|
 |:-----|:--:|------:|
 |user_id|integer|null:false, foreign_key:true|
-|ancestry|string|null: false, foreign_key:true|
+|product_id|integer|null: false, foreign_key:true|
 
 ### Association
 * belongs_to :product

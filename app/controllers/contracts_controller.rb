@@ -6,7 +6,6 @@ class ContractsController < ApplicationController
   before_action :exclusion_bought_produc
  
 
-
   def new
     @contract = Contract.new
     if @card.blank?
