@@ -31,7 +31,8 @@
 * Capistranoによる自動デプロイ
 
 ### ER図
-<img width="200" alt="ER図" src="Fleamarket_sample_80a.jpg">
+<img width="200" alt="ER図" src="/Users/kinoshitayoshihiro/projects/fleamarket_sample_80a/app/assets/images/Fleamarket_sample_80a.jpg">
+
 
 ## DB設計
 ### usersテーブル
