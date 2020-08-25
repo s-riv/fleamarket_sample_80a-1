@@ -3,9 +3,7 @@ class ContractsController < ApplicationController
   before_action :set_card, only: [:show, :new]
   before_action :set_product
   before_action :check_collect_user
-  before_action :exclusion_bought_produc
- 
-
+  before_action :exclusion_bought_product
 
   def new
     @contract = Contract.new
