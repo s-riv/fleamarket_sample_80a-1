@@ -31,7 +31,7 @@
 * Capistranoによる自動デプロイ
 
 ### ER図
-！[Fleamarket_sample_80a](https://user-images.githubusercontent.com/63842526/91152535-09de5680-e6fa-11ea-95e3-b4273edfb7ac.jpg)
+[Fleamarket_sample_80a](https://user-images.githubusercontent.com/63842526/91152535-09de5680-e6fa-11ea-95e3-b4273edfb7ac.jpg)
 
 
 ## DB設計
