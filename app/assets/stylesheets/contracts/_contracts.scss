@@ -84,7 +84,7 @@ $main-blue: #3CCACE;
       width: 700px;
       display: flex;
       margin: 0 auto;
-      padding-left: 90px;
+      padding-left: 120px;
 
       &__inner {
         height: 50px;
@@ -101,6 +101,19 @@ $main-blue: #3CCACE;
         .text {
           text-decoration: none;
           color: #3CCACE;
+        }
+      }
+      &__card {
+        height: 50px;
+        width: 400px;
+        line-height: 50px;
+        color: $font_title;
+        padding-left: 100px;
+        &__detail {
+          height: 50px;
+          width: 400px;
+          line-height: 50px;
+          color: $font_title;
         }
       }
     }

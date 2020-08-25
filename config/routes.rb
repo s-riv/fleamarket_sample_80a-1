@@ -22,12 +22,13 @@ Rails.application.routes.draw do
       get :bought
     end
   end
+
   resources :cards, only: [:index, :new, :create, :destroy] 
   resources :products do
     resources :contracts, only: [:new, :create, :show]
   end
+
   get 'products/new/mid_category', to: 'products#mid_category'
   get 'products/new/small_category', to: 'products#small_category'
 
-  
 end
