@@ -1,4 +1,4 @@
-document.addEventListener(
+$(document).click(
   "DOMContentLoaded", e => {
     if (document.getElementById("token_submit") != null) { 
       Payjp.setPublicKey("pk_test_0c620014513ae7212ccd8377"); 
