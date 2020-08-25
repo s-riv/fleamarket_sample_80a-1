@@ -12,10 +12,9 @@
         %p 出品した商品はありません
     .exhibition_products
       - @exhibitions.each do |exhibition|
-        - exhibition.images.limit(1).each do |image|
-          .exhibition_products-eachbox-image
-            = link_to (image_tag "#{image.image.url}"), product_path(exhibition.id)
-            %p= exhibition.name
+        .exhibition_products-eachbox-image
+          = link_to (image_tag "#{exhibition.images[0].image.url}"), product_path(exhibition.id)
+          %p= exhibition.name
     .exhibition_link
       = link_to "一覧表示", exhibition_user_path(current_user)
   %section.mypage-purchase_info
@@ -26,9 +25,8 @@
         %p 購入した商品はありません
     .purchase_products
       - @contracts.each do |contract|
-        - contract.images.limit(1).each do |image|
-          .purchase_products-eachbox-image
-            = link_to (image_tag "#{image.image.url}"), product_path(contract.product.id)
-            %p= contract.product.name
+        .purchase_products-eachbox-image
+          = link_to (image_tag "#{contract.product.images[0].image.url}"), product_path(contract.product.id)
+          %p= contract.product.name
     .purchase_link
       = link_to "一覧表示", buy_user_path(current_user)
