@@ -1,11 +1,21 @@
 class ContractsController < ApplicationController
   require_relative './../commonclass/payjp.rb'
+  before_action :set_card, only: [:show, :new]
   before_action :set_product
   before_action :check_collect_user
-  before_action :exclusion_bought_product
+  before_action :exclusion_bought_produc
+ 
+
 
   def new
     @contract = Contract.new
+    if @card.blank?
+      redirect_to new_card_path
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_info = customer.cards.retrieve(@card.card_id)
+    end
   end
 
   def create
@@ -16,7 +26,7 @@ class ContractsController < ApplicationController
       MyPayjp.create_charge_by_token(current_user.card.customer_id,
                                     @product.price)
       @product.update(status: 1)
-      redirect_to root_path, notice: "購入が完了しました"
+      render :show, notice: "購入が完了しました"
     else
       render :new
     end
@@ -27,9 +37,14 @@ class ContractsController < ApplicationController
 
   private
 
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
+  end
+
   def set_product
     @product = Product.find(params[:product_id])
   end
+
 
   def check_collect_user
     if @product.user_id == current_user.id
@@ -42,6 +57,5 @@ class ContractsController < ApplicationController
       redirect_to root_path, alert: "この商品は売切れです"
     end
   end
-
 
 end
