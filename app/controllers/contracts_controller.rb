@@ -51,7 +51,7 @@ class ContractsController < ApplicationController
   end
 
   def exclusion_bought_product
-     unless @product.status == 0
+    if @product.status == 0
       redirect_to root_path, alert: "この商品は売切れです"
     end
   end
