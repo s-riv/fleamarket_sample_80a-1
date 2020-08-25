@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
   
-
   def show
     @exhibitions = current_user.products.where(status: 0).last(4)
     @contracts = current_user.contracts.last(4)
   end
-
 
   def edit
     @user = current_user
@@ -23,7 +21,6 @@ class UsersController < ApplicationController
 
   def exhibition
     @exhibition_products = current_user.products.where(status: 0)
-
   end
 
   def bought
@@ -35,6 +32,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:nickname, :email, :first_name, :last_name, :first_name_kana, :last_name_kana, :birthday).merge(password: current_user.password)
   end
-
 
 end
