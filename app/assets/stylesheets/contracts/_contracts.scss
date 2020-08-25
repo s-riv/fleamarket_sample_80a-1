@@ -84,6 +84,7 @@ $main-blue: #3CCACE;
       width: 700px;
       display: flex;
       margin: 0 auto;
+      padding-left: 90px;
 
       &__inner {
         height: 50px;
@@ -91,8 +92,18 @@ $main-blue: #3CCACE;
         text-align: center;
         line-height: 50px;
         color: $font_title;
+        display: flex;
+        .icon {
+          text-decoration: none;
+          color: #3CCACE;
+          margin-right: 2px;
+        }
+        .text {
+          text-decoration: none;
+          color: #3CCACE;
+        }
       }
-    }  
+    }
     &__btn {
       height: 80px;
       width: 250px;

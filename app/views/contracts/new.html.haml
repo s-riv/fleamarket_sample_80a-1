@@ -17,11 +17,17 @@
     .contract__main__user-info
       .contract__main__user-info__inner
         %h3 支払い方法
-      .contract__main__user-info__inner
-        -if @card.present?
-          = link_to  "クレジットカード", cards_path(@card.id)
-        -else
-          = link_to "カード情報を登録してください", new_card_path
+      - if @card_info.blank?
+        .contract__main__user-info__inner
+          .icon
+            = icon("far", "plus-square")
+          .text
+            =link_to "クレジットカードを登録する", new_card_path, class:"text"
+      - else
+        .contract__main__card
+          = "**** **** **** " + @card_info.last4
+        .contract__main__card
+          = @card_info.exp_month.to_s + "月 / " + @card_info.exp_year.to_s.slice(2,3) + "年"
     .contract__main__btn
       = link_to product_contracts_path(@product, @contract), method: :post do
         .buy-button

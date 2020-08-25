@@ -1,6 +1,8 @@
 class ContractsController < ApplicationController
   require_relative './../commonclass/payjp.rb'
+  before_action :set_card, only: [:show]
   before_action :set_product
+  require "payjp"
 
   def new
     @contract = Contract.new
@@ -21,11 +23,23 @@ class ContractsController < ApplicationController
   end
 
   def show
+    if @card.blank?
+      redirect_to new_card_path
+    else
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_info = customer.cards.retrieve(@card.card_id)
+    end
   end
 
   private
 
+  def set_card
+    @card = Card.find_by(user_id: current_user.id)
+  end
+
   def set_product
     @product = Product.find(params[:product_id])
   end
+
 end
