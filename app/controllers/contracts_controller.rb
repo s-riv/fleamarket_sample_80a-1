@@ -3,8 +3,9 @@ class ContractsController < ApplicationController
   before_action :set_card, only: [:show, :new]
   before_action :set_product
   before_action :check_collect_user
-  before_action :exclusion_bought_produc
- 
+
+  before_action :exclusion_bought_product
+
 
   def new
     @contract = Contract.new
@@ -52,7 +53,7 @@ class ContractsController < ApplicationController
   end
 
   def exclusion_bought_product
-     unless @product.status == 0
+    if @product.status == 0
       redirect_to root_path, alert: "この商品は売切れです"
     end
   end
