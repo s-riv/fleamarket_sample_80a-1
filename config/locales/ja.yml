@@ -19,7 +19,7 @@ ja:
         early_ship:     "1~2日で発送"
         mid_ship:       "2~3日で発送"
         late_ship:      "4~7日で発送"
-  activerecord:
+  activerecord: 
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -116,3 +116,4 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%Y/%m/%d"
+  

@@ -1,10 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :show]
-  before_action :return_to_top, except: [:index, :show]
+  before_action :return_to_top, except: :show
+  before_action :check_collect_user, only: [:edit,:update, :destory]
  
-
-  def index
-  end
 
   def show
     @small = @product.category
@@ -83,5 +81,11 @@ class ProductsController < ApplicationController
     end
   end
 
+  def check_collect_user
+    @product = Product.find(params[:id])
+    unless @product.user_id == current_user.id
+      redirect_to root_path, alert: "権限がありません"
+    end
+  end
 
 end
