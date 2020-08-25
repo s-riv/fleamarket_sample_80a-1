@@ -1,6 +1,8 @@
 class ContractsController < ApplicationController
   require_relative './../commonclass/payjp.rb'
   before_action :set_product
+  before_action :check_collect_user
+  before_action :exclusion_bought_product
 
   def new
     @contract = Contract.new
@@ -28,4 +30,18 @@ class ContractsController < ApplicationController
   def set_product
     @product = Product.find(params[:product_id])
   end
+
+  def check_collect_user
+    if @product.user_id == current_user.id
+      redirect_to root_path, alert: "ご自身で出品された商品です"
+    end
+  end
+
+  def exclusion_bought_product
+     unless @product.status == 0
+      redirect_to root_path, alert: "この商品は売切れです"
+    end
+  end
+
+
 end

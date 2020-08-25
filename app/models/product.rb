@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :user
   has_many :images, dependent: :destroy
+  validates_associated :images
   has_one :contract
   accepts_nested_attributes_for :images, allow_destroy: true
 
@@ -22,6 +23,7 @@ class Product < ApplicationRecord
     validates :ship_day
     validates :category_id
     validates :prefecture_id
+    validates :images
   end
 
 end
