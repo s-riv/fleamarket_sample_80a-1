@@ -39,24 +39,30 @@
 
 ## インストール方法
 1.このリポジトリを複製
-　$ git clone https://github.com/kuriken0410/fleamarket_sample_80a
+
+$ git clone https://github.com/kuriken0410/fleamarket_sample_80a
 
 2.インストールしたリポジトリに移動
-　$ cd fleamarket_sample_80a.git
+
+$ cd fleamarket_sample_80a.git
 
 3.gemをアプリケーションに適用
-　$ bundle install
+
+$ bundle install
 
 4.DBの作成&反映
-　$ rails db:create
-　$ rails db:migrate
+
+$ rails db:create
+$ rails db:migrate
 
 5.カテゴリ一覧の反映
-　$ rails db:seed
+
+$ rails db:seed
 
 6.アプリケーションの起動
-　$ rails s
-　👉http://localhost:3000
+
+$ rails s
+👉http://localhost:3000
 
 ## DB設計
 ### usersテーブル
