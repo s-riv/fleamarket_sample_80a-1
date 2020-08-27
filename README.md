@@ -39,6 +39,7 @@
 
 ## インストール方法
 1.このリポジトリを複製
+
 $ git clone https://github.com/kuriken0410/fleamarket_sample_80a
 
 2.インストールしたリポジトリに移動
