@@ -30,21 +30,18 @@
 * Sass 3.7.4
 * jquery-rails 4.4.0
 
-## ■ フレームワーク
+### ■ フレームワーク
 * Ruby on Rails 6.0.3.2
 
-## ■ データベース
+### ■ データベース
 * MySQL 5.6.47
 
-## ■ インフラ
+### ■ インフラ
 * AWS EC2
 * AWS S3
 
-### デプロイ
+### ■ デプロイ
 * Capistranoによる自動デプロイ
-
-### ER図
-![Fleamarket_sample_80a](https://user-images.githubusercontent.com/63842526/91152535-09de5680-e6fa-11ea-95e3-b4273edfb7ac.jpg)
 
 ## :globe_with_meridians: インストール方法
 1.このリポジトリを複製<br>
@@ -68,6 +65,9 @@
 :point_right:`http://localhost:3000`
 
 ## :page_facing_up: DB設計
+
+### ER図
+![Fleamarket_sample_80a](https://user-images.githubusercontent.com/63842526/91152535-09de5680-e6fa-11ea-95e3-b4273edfb7ac.jpg)
 
 ### usersテーブル
 |Column|Type|Options|
