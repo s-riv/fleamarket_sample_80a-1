@@ -1,5 +1,7 @@
 # README
 
+<h1 align="center">フリーマーケットサイト</h1>
+
 ## アプリケーション概要
 * フリーマーケット用のWebアプリです。５人のチームでアジャイル開発を行いました。
 * 作成期間： 2020/8/4 〜 2020/8/26
@@ -13,6 +15,13 @@
 
 ## 主な使用技術
 ### ■ 言語
+<a><img src="https://user-images.githubusercontent.com/39142850/71774533-1ddf1780-2fb4-11ea-8560-753bed352838.png" width="70px;" /></a> <!-- rubyのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774548-731b2900-2fb4-11ea-99ba-565546c5acb4.png" height="60px;" /></a> <!-- RubyOnRailsのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774618-b32edb80-2fb5-11ea-9050-d5929a49e9a5.png" height="60px;" /></a> <!-- Hamlのロゴ -->
+<a><<img src="https://user-images.githubusercontent.com/39142850/71774644-115bbe80-2fb6-11ea-822c-568eabde5228.png" height="60px" /></a> <!-- Scssのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774768-d064a980-2fb7-11ea-88ad-4562c59470ae.png" height="65px;" /></a> <!-- jQueryのロゴ -->
+<a><img src="https://user-images.githubusercontent.com/39142850/71774786-37825e00-2fb8-11ea-8b90-bd652a58f1ad.png" height="60px;" /></a> <!-- AWSのロゴ -->
+
 #### バックエンド
 * Ruby 2.6.5
 
@@ -37,38 +46,30 @@
 ### ER図
 ![Fleamarket_sample_80a](https://user-images.githubusercontent.com/63842526/91152535-09de5680-e6fa-11ea-95e3-b4273edfb7ac.jpg)
 
-## インストール方法
-#### 1、このリポジトリを複製
+## :globe_with_meridians: インストール方法
+1.このリポジトリを複製<br>
+`$ git clone https://github.com/kuriken0410/fleamarket_sample_80a`
 
-$ git clone https://github.com/kuriken0410/fleamarket_sample_80a
+2.インストールしたリポジトリに移動<br>
+`$ cd fleamarket_sample_80a.git`
 
-#### 2、インストールしたリポジトリに移動
+3.gemをアプリケーションに適用<br>
+`$ bundle install`<br>
 
-$ cd fleamarket_sample_80a.git
+4.DBの作成&反映<br>
+`$ rails db:create`<br>
+`$ rails db:migrate`<br>
 
-#### 3、gemをアプリケーションに適用
+5.カテゴリ一覧の反映<br>
+`$ rails db:seed`<br>
 
-$ bundle install
+6.アプリケーションの起動<br>
+`$ rails s`<br>
+:point_right:`http://localhost:3000`
 
-#### 4、DBの作成&反映
+## :page_facing_up: DB設計
 
-$ rails db:create
-
-$ rails db:migrate
-
-#### 5、カテゴリ一覧の反映
-
-$ rails db:seed
-
-#### 6、アプリケーションの起動
-
-$ rails s
-
-👉http://localhost:3000
-
-## DB設計
 ### usersテーブル
-
 |Column|Type|Options|
 |:-----|:--:|------:|
 |nickname|string|null:false|
@@ -80,13 +81,11 @@ $ rails s
 |first_name_kana|string|null:false|
 |last_name_kana|string|null:false|
 |birthday|date||
-
 ### Association
 * has_many :products, dependent:delete_all
 * has_one :address,dependent:delete
 
 ## addessesテーブル
-
 |Column|Type|Options|
 |:-----|:--:|------:|
 |user_id|reference|null:false, foreign_key:true|
@@ -95,7 +94,6 @@ $ rails s
 |municipality|string|null:false|
 |block_number|string|null:false|
 |apartment_name|string||
-
 ### Association
 * belongs_to :user
 
@@ -105,7 +103,6 @@ $ rails s
 |user_id|integer|null:false, foreign_key:true|
 |customer_id|string|null:false|
 |card_id|string|null:false|
-
 ### Associtation
 * belongs_to :user
 
@@ -121,7 +118,6 @@ $ rails s
 |status|integer|null:false|
 |ship_day|string|null:false|
 |category_id|integer|null:false|
-
 ### Association
 * has_many :images
 * belongs_to :user
@@ -132,7 +128,6 @@ $ rails s
 |:-----|:--:|------:|
 |image|string|null:false|
 |product_id|reference|null:false, foreign_key:true|
-
 ### Associtation
 * belongs_to :product
 
@@ -141,7 +136,6 @@ $ rails s
 |:-----|:--:|------:|
 |name|string|null:false|
 |ancestry|string|null: false|
-
 ### Association
 * has_many :products
 * has_ancestry
@@ -151,7 +145,6 @@ $ rails s
 |:-----|:--:|------:|
 |user_id|integer|null:false, foreign_key:true|
 |product_id|integer|null: false, foreign_key:true|
-
 ### Association
 * belongs_to :product
 * belongs_to :user
