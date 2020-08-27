@@ -6,16 +6,19 @@
 
 ## 機能一覧
 - ユーザー登録、ログイン機能（ウィザード形式）
+- ユーザー登録、ログインがお済みでない方も商品の一覧、詳細を閲覧可能です。
 - 商品出品機能（画像や商品カテゴリを含めた複数項目の情報をDBへ登録）
 - 商品購入機能（ユーザーが所持するクレジットカードを用いて商品の購入）
 - クレジットカード登録機能（PayJp）
 
-## 使用技術
+## 主な使用技術
 ### ■ 言語
 #### バックエンド
 * Ruby 2.6.5
 
 #### フロントエンド
+* Haml 5.1.2
+* Sass 3.7.4
 * jquery-rails 4.4.0
 
 ## ■ フレームワーク
@@ -34,6 +37,26 @@
 ### ER図
 ![Fleamarket_sample_80a](https://user-images.githubusercontent.com/63842526/91152535-09de5680-e6fa-11ea-95e3-b4273edfb7ac.jpg)
 
+## インストール方法
+1.このリポジトリを複製
+$ git clone https://github.com/kuriken0410/fleamarket_sample_80a
+
+2.インストールしたリポジトリに移動
+$ cd fleamarket_sample_80a.git
+
+3.gemをアプリケーションに適用
+$ bundle install
+
+4.DBの作成&反映
+$ rails db:create
+$ rails db:migrate
+
+5.カテゴリ一覧の反映
+$ rails db:seed
+
+6.アプリケーションの起動
+$ rails s
+👉http://localhost:3000
 
 ## DB設計
 ### usersテーブル
