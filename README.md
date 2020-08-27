@@ -43,7 +43,7 @@
 ### ■ デプロイ
 * Capistranoによる自動デプロイ
 
-## :globe_with_meridians: インストール方法
+# :globe_with_meridians: インストール方法
 1.このリポジトリを複製<br>
 `$ git clone https://github.com/kuriken0410/fleamarket_sample_80a`
 
@@ -64,12 +64,12 @@
 `$ rails s`<br>
 :point_right:`http://localhost:3000`
 
-## :page_facing_up: DB設計
+# :page_facing_up: DB設計
 
-### ER図
+## ER図
 ![Fleamarket_sample_80a](https://user-images.githubusercontent.com/63842526/91152535-09de5680-e6fa-11ea-95e3-b4273edfb7ac.jpg)
 
-### usersテーブル
+## usersテーブル
 |Column|Type|Options|
 |:-----|:--:|------:|
 |nickname|string|null:false|
@@ -97,7 +97,7 @@
 ### Association
 * belongs_to :user
 
-### cardsテーブル
+## cardsテーブル
 |Column|Type|Options|
 |:-----|:--:|------:|
 |user_id|integer|null:false, foreign_key:true|
@@ -106,7 +106,7 @@
 ### Associtation
 * belongs_to :user
 
-### productsテーブル
+## productsテーブル
 |Column|Type|Options|
 |:-----|:--:|------:|
 |name|string|null:false|
@@ -123,7 +123,7 @@
 * belongs_to :user
 * belongs_to :category
 
-### imagesテーブル
+## imagesテーブル
 |Column|Type|Options|
 |:-----|:--:|------:|
 |image|string|null:false|
@@ -131,7 +131,7 @@
 ### Associtation
 * belongs_to :product
 
-### categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |:-----|:--:|------:|
 |name|string|null:false|
@@ -140,7 +140,7 @@
 * has_many :products
 * has_ancestry
 
-### contractsテーブル
+## contractsテーブル
 |Column|Type|Options|
 |:-----|:--:|------:|
 |user_id|integer|null:false, foreign_key:true|
