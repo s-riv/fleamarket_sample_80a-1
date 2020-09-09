@@ -83,7 +83,7 @@ class ProductsController < ApplicationController
 
   def check_collect_user
     @product = Product.find(params[:id])
-    unless @product.user_id == current_user.id
+    if @product.user_id != current_user.id
       redirect_to root_path, alert: "権限がありません"
     end
   end
